@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+  </head>
+  <body>
+
+  {% for profile in profiles %}
+
+
+  <div class="container">
+  <!-- For demo purpose -->
+  <div class="row py-5">
+    <div class="col-lg-9 mx-auto text-red text-center">
+      <h1 class="display-4">SIDECU</h1>
+      <p class="lead mb-0">AQUÍ PODRA VER TODA SU INFORMACIÓN COMO AGENTE O GESTOR CULTURAL</p>
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12 mx-auto">
+      <!-- Accordion -->
+      <div id="accordionExample" class="accordion shadow">
+
+        <!-- Accordion item 1 -->
+        <div class="card">
+          <div id="headingOne" class="card-header bg-white shadow-sm border-0">
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block position-relative text-dark text-uppercase collapsible-link py-2">Información Personal</a></h6>
+          </div>
+          <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show">
+            <div class="card-body p-5">
+              <p class="font-weight-light m-0">
+                  <div class="container">
+                <div class="row row-cols-2">
+                     <img src="/media/{{profile.image}}" class="img-fluid rounded mx-auto d-block pb-4" style="max-width: 60%;">
+                    <div class="col"><h3>Agente o gestor cultural: <small>{{profile.tipo}}</small></h3></div>
+                    <div class="col"><h3>Tipo de documento: <small>{{profile.type_document}}</small></h3></div>
+                    <div class="col"><h3>Numero de documento: <small>{{profile.identification}}</small></h3></div>
+                    <div class="col"><h3>Primer Nombre: <small>{{profile.name}}</small></h3></div>
+                    <div class="col"><h3 >Otros Nombres: <small>{{profile.other_name}}</small></h3></div>
+                    <div class="col"><h3>Primer Apellido: <small>{{profile.last_name}}</small></h3></div>
+                    <div class="col"><h3>Segundo Apellido: <small>{{profile.last_name2}}</small></h3></div>
+                    <div class="col"><h3>Nombre Artistico: <small>{{profile.artistic_name}}</small></h3></div>
+                    <div class="col"><h3 >Fecha de nacimiento: <small>{{profile.birthday}}</small></h3></div>
+                    <div class="col"><h3>Identidad de genero: <small>{{profile.gender}}</small></h3></div>
+                    <div class="col"><h3>Grupo étnico: <small>{{profile.etnico}}</small></h3></div>
+                    <div class="col"><h3>Discapacidad: <small>{{profile.disability}}</small></h3></div>
+                    <div class="col"><h3 >Grupo poblacional: <small>{{profile.population_group}}</small></h3></div>
+                    <div class="col"><h3>Tiene Rut: <small>{{profile.rut}}</small></h3></div>
+                    <div class="col"><h3>Rut: <small>{{profile.code_rut}}</small></h3></div>
+
+                </div>
+            </div>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion item 2 -->
+        <div class="card">
+          <div id="headingTwo" class="card-header bg-white shadow-sm border-0">
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Datos Ubicación</a></h6>
+          </div>
+          <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample" class="collapse">
+            <div class="card-body p-5">
+              <p class="font-weight-light m-0">
+                  <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col"><h3>Pais de residencia: <small>{{profile.country}}</small></h3></div>
+                    <div class="col"><h3>Departamento de ubicación: <small>{{profile.state}}</small></h3></div>
+                    <div class="col"><h3>Municipio de ubicación: <small>{{profile.city}}</small></h3></div>
+                    <div class="col"><h3>Centro poblado: <small>{{profile.zone}}</small></h3></div>
+                    <div class="col"><h3>Direccion: <small>{{profile.adress}}</small></h3></div>
+                    <div class="col"><h3>Zona(rural - urbana): <small>{{profile.zona}}</small></h3></div>
+
+                    <div class="col"><h3 >Estrato vivienda: <small>{{profile.housing_stratum}}</small></h3></div>
+                    <div class="col"><h3>Teléfono fijo: <small>{{profile.phone}}</small></h3></div>
+                    <div class="col"><h3>Teléfono móvil: <small>{{profile.phone_movil}}</small></h3></div>
+                    <div class="col"><h3>Correo electrónico: <small>{{profile.email}}</small></h3></div>
+
+
+                </div>
+            </div>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion item 3 -->
+        <div class="card">
+          <div id="headingThree" class="card-header bg-white shadow-sm border-0">
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Información socio económica</a></h6>
+          </div>
+          <div id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample" class="collapse">
+            <div class="card-body p-5">
+              <p class="font-weight-light m-0">
+               <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col"><h3>Régimen de salud: <small>{{profile.health_regimen}}</small></h3></div>
+                    <div class="col"><h3>Régimen de pension: <small>{{profile.pension_regimen}}</small></h3></div>
+                    <div class="col"><h3>Ingresos mensuales: <small>{{profile.monthly_income}}</small></h3></div>
+
+
+                </div>
+            </div>
+              </p>
+            </div>
+          </div>
+        </div>
+
+          <div class="card">
+          <div id="headingFour" class="card-header bg-white shadow-sm border-0">
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Sector Ocupación</a></h6>
+          </div>
+          <div id="collapseFour" aria-labelledby="headingFour" data-parent="#accordionExample" class="collapse">
+            <div class="card-body p-5">
+              <p class="font-weight-light m-0">
+                  <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col"><h3>Sector: <small>{{profile.sector}}</small></h3></div>
+                    <div class="col"><h3>Área:<small>{{profile.area2}}</small></h3></div>
+
+
+
+                </div>
+            </div>
+              </p>
+            </div>
+          </div>
+        </div>
+
+          <div class="card">
+          <div id="headingFive" class="card-header bg-white shadow-sm border-0">
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Actividad</a></h6>
+          </div>
+          <div id="collapseFive" aria-labelledby="headingFive" data-parent="#accordionExample" class="collapse">
+            <div class="card-body p-5">
+              <p class="font-weight-light m-0">
+                  <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col"><h3>Actividad: <small>{{profile.activity}}</small></h3></div>
+                    <div class="col"><h3>Vigia del patrimonio: <small>{{profile.vigia_patrimonio}}</small></h3></div>
+                    <div class="col"><h3>Portador manifestación patrimonio: <small>{{profile.portador_manifestacion}}</small></h3></div>
+                    <div class="col"><h3>Manifestación: <small>{{profile.manifestation}}</small></h3></div>
+
+
+
+                </div>
+            </div>
+              </p>
+            </div>
+          </div>
+        </div>
+
+           <div class="card">
+          <div id="headingSix" class="card-header bg-white shadow-sm border-0">
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Formación</a></h6>
+          </div>
+          <div id="collapseSix" aria-labelledby="headingSix" data-parent="#accordionExample" class="collapse">
+            <div class="card-body p-5">
+              <p class="font-weight-light m-0">
+                  <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col"><h3>Formación: <small>{{profile.formacion}}</small></h3></div>
+                    <div class="col"><h3>Más Formación: <small>{{profile.mas_formacion}}</small></h3></div>
+
+
+
+                </div>
+            </div>
+              </p>
+            </div>
+          </div>
+        </div>
+
+          <div class="card">
+          <div id="headingSeven" class="card-header bg-white shadow-sm border-0">
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Experiencia</a></h6>
+          </div>
+          <div id="collapseSeven" aria-labelledby="headingSeven" data-parent="#accordionExample" class="collapse">
+            <div class="card-body p-5">
+              <p class="font-weight-light m-0">
+                  <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col"><h3>Experiencia: <small>{{profile.experiencia}}</small></h3></div>
+
+
+
+                </div>
+            </div>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+                <div class="row py-3">
+    <div class="col-lg-4 mx-auto text-white text-center">
+                   <a class="btn btn-primary" href="{% url 'edit_agentcultural' id=profile.id %}">Agregar o editar registro</a>
+
+                </div>
+                </div>
+            </div>
+   <div class="container">
+                <div class="row py-3">
+    <div class="col-lg-4 mx-auto text-white text-center">
+                     <a class="btn btn-primary" href="{% url 'export-pdf' %}">Generar PDF</a>
+
+                </div>
+                </div>
+            </div>
+
+{% endfor %}
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+  </body>
+</html>
+
