@@ -449,6 +449,9 @@ class AgentCultural(models.Model):
     experiencia = models.TextField(max_length=2000, blank=True,
                                      verbose_name='Describa su experiencia')
     archivo = models.FileField( null=True, blank=True)
+    terminosycondiciones = models.CharField(max_length=2, choices=BOOLEAN_CHOICES,
+                                            verbose_name='Acepta terminos y condiciones', null=True,
+                                            blank=True)
     created = models.DateTimeField(auto_now_add=True)
 
 
@@ -686,6 +689,9 @@ class Entidad(models.Model):
                                  verbose_name='  PRINCIPAL MODALIDAD DE FORMACIÓN QUE IMPARTE LA ORGANIZACIÓN',
                                  null=True,
                                  blank=True)
+    terminosycondiciones = models.CharField(max_length=2, choices=BOOLEAN_CHOICES,
+                                            verbose_name='Acepta terminos y condiciones', null=True,
+                                            blank=True)
     created = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.name
