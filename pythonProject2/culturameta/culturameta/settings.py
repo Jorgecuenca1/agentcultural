@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'multiselectfield',
     'import_export',
     'weasyprint',
-    'whitenoise',
 
 
 ]
