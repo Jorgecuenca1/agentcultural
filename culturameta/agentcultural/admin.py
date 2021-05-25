@@ -327,7 +327,7 @@ class AgentCulturalAdmin(ImportExportModelAdmin):
         }),
 
         ('Actividad', {
-            'fields': (('activity','vigia_patrimonio','portador_manifestacion','manifestation','formacion','mas_formacion','experiencia','terminosycondiciones','sisben')),
+            'fields': (('activity','vigia_patrimonio','portador_manifestacion','manifestation','formacion','mas_formacion','experiencia','terminosycondiciones','sisben',)),
 
         }),
 

@@ -25,6 +25,7 @@ urlpatterns = [
     path('users/login/',agentcultural_views.login_view,name='login'),
     path('users/datos/',agentcultural_views.datos, name='datos'),
     path('users/entidad/',agentcultural_views.entidad, name='entidad'),
+    path('users/logout/', agentcultural_views.logout_view, name='logout'),
     path('users/agenteoentidad/',agentcultural_views.agenteoentidad, name='agenteoentidad'),
     path('users/agentcultural/<int:id>/edit', agentcultural_views.edit_agentcultural, name='edit_agentcultural'),
     path('users/entidad/<int:id>/edit', agentcultural_views.edit_entidad, name='edit_entidad'),

@@ -448,7 +448,7 @@ class AgentCultural(models.Model):
     mas_formacion= models.TextField(max_length=500, blank=True, verbose_name='Describa si tiene mas formacion en un texto')
     experiencia = models.TextField(max_length=2000, blank=True,
                                      verbose_name='Describa su experiencia')
-    sisben = models.ImageField(verbose_name='Sisben(subir una imagen)', upload_to='agent/image',blank=True,null=True)
+    sisben = models.FileField(verbose_name='Sisben', upload_to='agent/file',blank=True,null=True)
     terminosycondiciones = models.CharField(max_length=2, choices=BOOLEAN_CHOICES,
                                             verbose_name='Acepta terminos y condiciones', null=True,
                                             blank=True)

@@ -126,3 +126,8 @@ def export_pdf(request):
     HTML(string=html).write_pdf(response, font_config=font_config)
 
     return response
+
+def logout_view(request):
+    """Logout a user."""
+    logout(request)
+    return redirect('login')
