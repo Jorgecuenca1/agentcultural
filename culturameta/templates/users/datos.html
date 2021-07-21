@@ -2,7 +2,7 @@
 
 <html lang="en">
   <head>
-
+    {% load static %}
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,11 +20,15 @@
 
 
   <div class="container">
+
   <!-- For demo purpose -->
   <div class="row py-5">
     <div class="col-lg-9 mx-auto text-red text-center">
+        <img src="{% static "img/logo.png" %}" class="img-fluid rounded mx-auto d-block pb-4" style="max-width: 60%;">
+
+
       <h1 class="display-4">SIDECU</h1>
-      <p class="lead mb-0">AQUÍ PODRA VER TODA SU INFORMACIÓN COMO AGENTE O GESTOR CULTURAL</p>
+      <p class="lead mb-0">AQUÍ PODRÁ VER TODA SU INFORMACIÓN</p>
 
     </div>
   </div>
@@ -38,29 +42,35 @@
         <!-- Accordion item 1 -->
         <div class="card">
           <div id="headingOne" class="card-header bg-white shadow-sm border-0">
-            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block position-relative text-dark text-uppercase collapsible-link py-2">Información Personal</a></h6>
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="d-block position-relative text-dark text-uppercase collapsible-link py-2">DATOS DE IDENTIFICACIÓN</a></h6>
           </div>
           <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="collapse show">
             <div class="card-body p-5">
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                     <img src="/media/{{profile.image}}" class="img-fluid rounded mx-auto d-block pb-4" style="max-width: 60%;">
-                    <div class="col"><h3>Agente o gestor cultural: <small>{{profile.tipo}}</small></h3></div>
-                    <div class="col"><h3>Tipo de documento: <small>{{profile.type_document}}</small></h3></div>
-                    <div class="col"><h3>Numero de documento: <small>{{profile.identification}}</small></h3></div>
-                    <div class="col"><h3>Primer Nombre: <small>{{profile.name}}</small></h3></div>
-                    <div class="col"><h3 >Otros Nombres: <small>{{profile.other_name}}</small></h3></div>
-                    <div class="col"><h3>Primer Apellido: <small>{{profile.last_name}}</small></h3></div>
-                    <div class="col"><h3>Segundo Apellido: <small>{{profile.last_name2}}</small></h3></div>
-                    <div class="col"><h3>Nombre Artistico: <small>{{profile.artistic_name}}</small></h3></div>
-                    <div class="col"><h3 >Fecha de nacimiento: <small>{{profile.birthday}}</small></h3></div>
-                    <div class="col"><h3>Identidad de genero: <small>{{profile.gender}}</small></h3></div>
-                    <div class="col"><h3>Grupo étnico: <small>{{profile.etnico}}</small></h3></div>
-                    <div class="col"><h3>Discapacidad: <small>{{profile.disability}}</small></h3></div>
-                    <div class="col"><h3 >Grupo poblacional: <small>{{profile.population_group}}</small></h3></div>
-                    <div class="col"><h3>Tiene Rut: <small>{{profile.rut}}</small></h3></div>
-                    <div class="col"><h3>Rut: <small>{{profile.code_rut}}</small></h3></div>
+                    <img src="/media/{{profile.image}}" class="img-fluid rounded mx-auto d-block pb-4" style="max-width: 20%;">
+                    <div class="col"><h3>1. AGENTE O GESTOR CULTURAL: <small>{{profile.tipo}}</small></h3></div>
+                    <div class="col"><h3>1.1. NOMBRES: <small>{{profile.name}}</small></h3></div>
+                    <div class="col"><h3>1.2. APELLIDOS: <small>{{profile.last_name}}</small></h3></div>
+                    <div class="col"><h3>1.3. NOMBRE ARTÍSTICO: <small>{{profile.artistic_name}}</small></h3></div>
+                    <div class="col"><h3 >1.4. GÉNERO: <small>{{profile.gender}}</small></h3></div>
+                    <div class="col"><h3>1.5. FECHA DE NACIMIENTO: <small>{{profile.birthday}}</small></h3></div>
+                    <div class="col"><h3>1.6. LUGAR DE NACIMIENTO: <small>{{profile.lugar_nacimiento}}</small></h3></div>
+                    <div class="col"><h3>1.7. TIPO DOCUMENTO IDENTIDAD: <small>{{profile.type_document}}</small></h3></div>
+                    <div class="col"><h3 >1.8. NÚMERO DE DOCUMENTO: <small>{{profile.identification}}</small></h3></div>
+                    <div class="col"><h3>1.9. LUGAR DE EXPEDICIÓN: <small>{{profile.lugar_expedicion}}</small></h3></div>
+                    <div class="col"><h3>1.10. TARJETA PROFESIONAL: <small>{{profile.tarjeta_profesional}}</small></h3></div>
+                    <div class="col"><h3>1.11. FECHA DE EXPEDICIÓN: <small>{{profile.expedicion_tarjeta}}</small></h3></div>
+                    <div class="col"><h3 >1.12. PASAPORTE: <small>{{profile.passport}}</small></h3></div>
+                    <div class="col"><h3>1.13. FECHA DE EXPEDICIÓN: <small>{{profile.expedicion_passport}}</small></h3></div>
+                    <div class="col"><h3>1.14. FECHA DE VENCIMIENTO: <small>{{profile.vencimiento_passport}}</small></h3></div>
+                    <div class="col"><h3>1.15. ¿POSEE ALGUNA DISCAPACIDAD FÍSICA?: <small>{{profile.posee_discapacidad}}</small></h3></div>
+                    <div class="col"><h3>1.16. ¿CUÁL ?: <small>{{profile.disabilityl}}</small></h3></div>
+                    <div class="col"><h3>1.17. ¿PERTENECE A UNA MINORÍA ÉTNICA?: <small>{{profile.posee_etnico}}</small></h3></div>
+                    <div class="col"><h3 >1.18. ¿CUÁL ?: <small>{{profile.etnico}}</small></h3></div>
+                    <div class="col"><h3>1.19. ¿ES VÍCTIMA?: <small>{{profile.esvictima}}</small></h3></div>
+                    <div class="col"><h3>1.20. ¿HECHO VICTIMIZANTE?: <small>{{profile.victima}}</small></h3></div>
 
                 </div>
             </div>
@@ -72,25 +82,22 @@
         <!-- Accordion item 2 -->
         <div class="card">
           <div id="headingTwo" class="card-header bg-white shadow-sm border-0">
-            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Datos Ubicación</a></h6>
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">DATOS UBICACIÓN</a></h6>
           </div>
           <div id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordionExample" class="collapse">
             <div class="card-body p-5">
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                    <div class="col"><h3>Pais de residencia: <small>{{profile.country}}</small></h3></div>
-                    <div class="col"><h3>Departamento de ubicación: <small>{{profile.state}}</small></h3></div>
-                    <div class="col"><h3>Municipio de ubicación: <small>{{profile.city}}</small></h3></div>
-                    <div class="col"><h3>Centro poblado: <small>{{profile.zone}}</small></h3></div>
-                    <div class="col"><h3>Direccion: <small>{{profile.adress}}</small></h3></div>
-                    <div class="col"><h3>Zona(rural - urbana): <small>{{profile.zona}}</small></h3></div>
+                    <div class="col"><h3>2.1.MUNICIPIO: <small>{{profile.city}}</small></h3></div>
+                    <div class="col"><h3>2.2.ÁREA: <small>{{profile.zona}}</small></h3></div>
+                    <div class="col"><h3>2.3.DIRECCIÓN DE VIVIENDA: <small>{{profile.adress}}</small></h3></div>
+                    <div class="col"><h3>2.4.DIRECCIÓN DE CORRESPONDENCIA: <small>{{profile.adress2}}</small></h3></div>
+                    <div class="col"><h3>2.5.TELÉFONO: <small>{{profile.phone}}</small></h3></div>
+                    <div class="col"><h3>2.6.CELULAR: <small>{{profile.phone_movil}}</small></h3></div>
 
-                    <div class="col"><h3 >Estrato vivienda: <small>{{profile.housing_stratum}}</small></h3></div>
-                    <div class="col"><h3>Teléfono fijo: <small>{{profile.phone}}</small></h3></div>
-                    <div class="col"><h3>Teléfono móvil: <small>{{profile.phone_movil}}</small></h3></div>
-                    <div class="col"><h3>Correo electrónico: <small>{{profile.email}}</small></h3></div>
-
+                    <div class="col"><h3 >2.7.E-MAIL: <small>{{profile.email}}</small></h3></div>
+                    <div class="col"><h3>2.8.PÁGINA WEB: <small>{{profile.web}}</small></h3></div>
 
                 </div>
             </div>
@@ -102,16 +109,30 @@
         <!-- Accordion item 3 -->
         <div class="card">
           <div id="headingThree" class="card-header bg-white shadow-sm border-0">
-            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Información socio económica</a></h6>
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">CARACTERÍSTICAS GENERALES</a></h6>
           </div>
           <div id="collapseThree" aria-labelledby="headingThree" data-parent="#accordionExample" class="collapse">
             <div class="card-body p-5">
               <p class="font-weight-light m-0">
                <div class="container">
                 <div class="row row-cols-2">
-                    <div class="col"><h3>Régimen de salud: <small>{{profile.health_regimen}}</small></h3></div>
-                    <div class="col"><h3>Régimen de pension: <small>{{profile.pension_regimen}}</small></h3></div>
-                    <div class="col"><h3>Ingresos mensuales: <small>{{profile.monthly_income}}</small></h3></div>
+                    <div class="col"><h3>3.1.¿ACTUALMENTE DESARROLLA ALGUNA PRÁCTICA ARTÍSTICA?: <small>{{profile.desarrollo_practica}}</small></h3></div>
+                    <div class="col"><h3 >3.2. DESARROLLA LA PRÁCTICA ARTÍSTICA DE FORMA: <small>{{profile.forma_practica}}</small></h3></div>
+                    <div class="col"><h3>3.3. ÁREA ARTÍSTICA QUE PRACTICA: <small>{{profile.area2}}</small></h3></div>
+                    <div class="col"><h3>3.4. PRÁCTICA ARTÍSTICA: <small>{{profile.practica}}</small></h3></div>
+                    <div class="col"><h3>3.4. ¿CUÁL?: <small>{{profile.cual_practica}}</small></h3></div>
+                    <div class="col"><h3>3.5. ¿PERTENECE A UNA ORGANIZACIÓN ARTÍSTICA O CULTURAL?: <small>{{profile.pertenece_entidad }}</small></h3></div>
+                    <div class="col"><h3>3.6. ¿DESDE QUÉ AÑO ESTÁ VINCULADO A LA ORGANIZACIÓN ARTÍSTICA O CULTURAL?: <small>{{profile.vinculacion_entidad}}</small></h3></div>
+                    <div class="col"><h3>3.7. NOMBRE DE LA ORGANIZACIÓN ARTÍSTICA O CULTURAL: <small>{{profile.name_entity}}</small></h3></div>
+                    <div class="col"><h3>3.8. ¿QUÉ TIPO DE FORMACIÓN HA RECIBIDO?: <small>{{profile.tipo_formacion}}</small></h3></div>
+                    <div class="col"><h3>3.9. NIVEL DE EDUCACIÓN: <small>{{profile.nivel_educacion}}</small></h3></div>
+                    <div class="col"><h3>3.10.TÍTULO RECIBIDO: <small>{{profile.titulo}}</small></h3></div>
+                    <div class="col"><h3>3.11. AÑO: <small>{{profile.ano_titulo}}</small></h3></div>
+                    <div class="col"><h3>3.12. NOMBRE DE ENTIDAD EDUCATIVA: <small>{{profile.entidad_educativa}}</small></h3></div>
+                    <div class="col"><h3>3.13. RESEÑA TRAYECTORIA ARTÍSTICA: <small>{{profile.reseña_trayectoria}}</small></h3></div>
+                    <div class="col"><h3>3.14. SERVICIOS : <small>{{profile.servicios}}</small></h3></div>
+                    <div class="col"><h3>3.15. FACEBOOK: <small>{{profile.facebook}}</small></h3></div>
+                    <div class="col"><h3>3.16. INSTAGRAM: <small>{{profile.instagram}}</small></h3></div>
 
 
                 </div>
@@ -123,15 +144,26 @@
 
           <div class="card">
           <div id="headingFour" class="card-header bg-white shadow-sm border-0">
-            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Sector Ocupación</a></h6>
+            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">INFORMACIÓN SOCIO ECONÓMICA</a></h6>
           </div>
           <div id="collapseFour" aria-labelledby="headingFour" data-parent="#accordionExample" class="collapse">
             <div class="card-body p-5">
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                    <div class="col"><h3>Sector: <small>{{profile.sector}}</small></h3></div>
-                    <div class="col"><h3>Área:<small>{{profile.area2}}</small></h3></div>
+                    <div class="col"><h3>4.1.LA VIVIENDA QUE HABITA ES: <small>{{profile.tipo_vivienda}}</small></h3></div>
+                    <div class="col"><h3>4.2.ESTRATO DE LA VIVIENDA:<small>{{profile.housing_stratum}}</small></h3></div>
+                    <div class="col"><h3>4.3.¿TIPO DE VINCULACIÓN EN LA ACTIVIDAD ARTÍSTICA Y CULTURAL?: <small>{{profile.tipo_vinculacion}}</small></h3></div>
+                    <div class="col"><h3>4.3.1.¿CUÁL TIPO DE VINCULACIÓN?:<small>{{profile.cual_vinculacion}}</small></h3></div>
+                    <div class="col"><h3>4.4.¿DESARROLLA OTRA ACTIVIDAD PRODUCTIVA DIFERENTE A LA ARTÍSTICA Y CULTURAL?: <small>{{profile.otra_actividad}}</small></h3></div>
+                    <div class="col"><h3>4.5.FUENTES DE INGRESO:<small>{{profile.fuente_ingreso}}</small></h3></div>
+                    <div class="col"><h3>4.6.¿QUÉ PORCENTAJE DE SUS INGRESOS PROVIENEN DE LA ACTIVIDAD ARTÍSTICA Y CULTURAL?: <small>{{profile.porcentaje}}</small></h3></div>
+                    <div class="col"><h3>4.7.¿SE ENCUENTRA ACTUALMENTE AFILIADO AL RÉGIMEN DE SEGURIDAD SOCIAL EN SALUD?:<small>{{profile.regimen_salud}}</small></h3></div>
+                    <div class="col"><h3>4.8.A QUE RÉGMIEN DE SALUD: <small>{{profile.health_regimen}}</small></h3></div>
+                    <div class="col"><h3>4.9. ¿SE ENCUENTRA ACTUALMENTE AFILIADO AL RÉGIMEN DE SEGURIDAD SOCIAL EN PENSIONES?:<small>{{profile.regimen_pension}}</small></h3></div>
+                    <div class="col"><h3>4.10. A QUE RÉGIMEN DE PENSIÓN: <small>{{profile.pension_regimen}}</small></h3></div>
+                    <div class="col"><h3>4.11. ¿SE ENCUENTRA ACTUALMENTE AFILIADO AL RÉGIMEN DE RIESGOS PROFESIONALES?:<small>{{profile.regimen_arl}}</small></h3></div>
+
 
 
 
@@ -151,79 +183,25 @@
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                    <div class="col"><h3>Actividad: <small>{{profile.activity}}</small></h3></div>
-                    <div class="col"><h3>Vigia del patrimonio: <small>{{profile.vigia_patrimonio}}</small></h3></div>
-                    <div class="col"><h3>Portador manifestación patrimonio: <small>{{profile.portador_manifestacion}}</small></h3></div>
-                    <div class="col"><h3>Manifestación: <small>{{profile.manifestation}}</small></h3></div>
-
-
-
-                </div>
-            </div>
-              </p>
-            </div>
-          </div>
-        </div>
-
-           <div class="card">
-          <div id="headingSix" class="card-header bg-white shadow-sm border-0">
-            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Formación</a></h6>
-          </div>
-          <div id="collapseSix" aria-labelledby="headingSix" data-parent="#accordionExample" class="collapse">
-            <div class="card-body p-5">
-              <p class="font-weight-light m-0">
-                  <div class="container">
-                <div class="row row-cols-2">
-                    <div class="col"><h3>Formación: <small>{{profile.formacion}}</small></h3></div>
-                    <div class="col"><h3>Más Formación: <small>{{profile.mas_formacion}}</small></h3></div>
-
-
-
-                </div>
-            </div>
-              </p>
-            </div>
-          </div>
-        </div>
-
-          <div class="card">
-          <div id="headingSeven" class="card-header bg-white shadow-sm border-0">
-            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Experiencia</a></h6>
-          </div>
-          <div id="collapseSeven" aria-labelledby="headingSeven" data-parent="#accordionExample" class="collapse">
-            <div class="card-body p-5">
-              <p class="font-weight-light m-0">
-                  <div class="container">
-                <div class="row row-cols-2">
-                    <div class="col"><h3>Experiencia: <small>{{profile.experiencia}}</small></h3></div>
-
-
-
-                </div>
-            </div>
-              </p>
-            </div>
-          </div>
-        </div>
-
-          <div class="card">
-          <div id="headingEleven" class="card-header bg-white shadow-sm border-0">
-            <h6 class="mb-0 font-weight-bold"><a href="#" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven" class="d-block position-relative collapsed text-dark text-uppercase collapsible-link py-2">Sisben</a></h6>
-          </div>
-          <div id="collapseEleven" aria-labelledby="headingEleven" data-parent="#accordionExample" class="collapse">
-            <div class="card-body p-5">
-              <p class="font-weight-light m-0">
-                  <div class="container">
-                <div class="row row-cols-2">
+                    <div class="col"><h3>VIGIA PATRIMONIO: <small>{{profile.vigia_patrimonio}}</small></h3></div>
+                    <div class="col"><h3>PORTADOR DE MANIFESTACIÓN PATRIMONIO: <small>{{profile.portador_manifestacion}}</small></h3></div>
+                    <div class="col"><h3>MANIFESTACIÓN: <small>{{profile.manifestation}}</small></h3></div>
+                    <div class="col"><h3>BEPS: <small>{{profile.beps}}</small></h3></div>
                     <a href="/media/{{profile.sisben}}" class="btn btn-info" role="button">{{profile.sisben}}</a>
 
 
+
+
                 </div>
             </div>
               </p>
             </div>
           </div>
         </div>
+
+
+
+
 
       </div>
     </div>

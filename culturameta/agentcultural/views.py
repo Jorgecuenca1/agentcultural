@@ -70,6 +70,15 @@ def datos(request):
 
     return render(request, 'users/datos.html',
                   {'profiles': profiles,})
+
+def portafolio(request):
+    user = request.user
+
+
+    profiles = AgentCultural.objects.filter( created__lte=timezone.now()).order_by('created')
+
+    return render(request, 'users/portafolio.html',
+                  {'profiles': profiles,})
 def entidad(request):
     user = request.user
 
@@ -126,7 +135,34 @@ def export_pdf(request):
     HTML(string=html).write_pdf(response, font_config=font_config)
 
     return response
+def export_pdfp(request):
 
+    user = request.user
+    profiles = AgentCultural.objects.filter(created__lte=timezone.now()).order_by('created')
+    context = {'profiles':profiles}
+    html = render_to_string("users/portafolio.html", context)
+
+    response = HttpResponse(content_type="application/pdf")
+    response["Content-Disposition"] = "inline; portafolio.pdf"
+
+    font_config = FontConfiguration()
+    HTML(string=html).write_pdf(response, font_config=font_config)
+
+    return response
+def export_pdfe(request):
+
+    user = request.user
+    entidades = Entidad.objects.filter(user=user, created__lte=timezone.now()).order_by('created')
+    context = {'entidades':entidades}
+    html = render_to_string("users/pdfe.html", context)
+
+    response = HttpResponse(content_type="application/pdf")
+    response["Content-Disposition"] = "inline; datos.pdf"
+
+    font_config = FontConfiguration()
+    HTML(string=html).write_pdf(response, font_config=font_config)
+
+    return response
 def logout_view(request):
     """Logout a user."""
     logout(request)

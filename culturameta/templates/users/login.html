@@ -15,7 +15,7 @@
         {% csrf_token %}
 
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="Cedula" name="username" />
+            <input class="form-control" type="text" placeholder="Usuario" name="username" />
         </div>
 
         <div class="form-group">
@@ -24,6 +24,7 @@
 
 
         <button class="btn btn-primary btn-block mt-5" type="submit">Sign in!</button>
+        <a href="/users/signup" class="btn btn-primary btn-block mt-5" role="button">Registrarse</a>
 
     </form>
 

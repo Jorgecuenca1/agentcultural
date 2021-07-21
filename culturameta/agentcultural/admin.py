@@ -3,7 +3,7 @@ from import_export.admin import ImportExportModelAdmin
 
 from .models import Country, Region, City, Zone, TypeDocument, Genero, GroupEtnico, Disability, PopulationGroup, \
     HealthRegimen, HousingStratum, MonthlyIncome, PensionRegimen, Sector, Area, Formacion, Activity, AgentCultural, \
-    Manifestation, Entidad, Regimen, Subregimen, Naturaleza, Caracterentidad, NivelEntidad, FormacionE
+    Manifestation, Victima, Entidad, Regimen, Subregimen, Naturaleza, Caracterentidad, NivelEntidad, FormacionE
 
 from django.contrib import admin
 from django.contrib.auth.models import User
@@ -293,41 +293,56 @@ class ManifestationAdmin(ImportExportModelAdmin):
 class ManifestationResource(resources.ModelResource):
    class Meta:
     model = Manifestation
+@admin.register(Victima)
+class VictimaAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    search_fields = ('name',)
+    list_filter = ('name',)
+
+class VictimaResource(resources.ModelResource):
+   class Meta:
+    model = Victima
 
 @admin.register(AgentCultural)
 class AgentCulturalAdmin(ImportExportModelAdmin):
-
-
+    readonly_fields = ('birthday','expedicion_tarjeta','expedicion_passport','vencimiento_passport','vinculacion_entidad','ano_titulo','created')
     list_display = (
-    'pk', 'type_document','user', 'identification','name', 'other_name', 'last_name', 'last_name2', 'artistic_name',  'gender', 'etnico',
-    'disability', 'population_group', 'rut', 'code_rut', 'country', 'state', 'city', 'zone', 'adress','created')
+    'pk', 'tipo','user', 'name', 'last_name','artistic_name', 'gender',  'lugar_nacimiento', 'type_document',  'identification', 'lugar_expedicion',
+    'tarjeta_profesional', 'expedicion_tarjeta', 'passport', 'expedicion_passport', 'vencimiento_passport', 'posee_discapacidad', 'disability', 'posee_etnico', 'etnico','esvictima',
+    'victima',  'zona', 'adress','adress2', 'email','web',  'forma_practica', 'area2','practica', 'pertenece_entidad', 'vinculacion_entidad',
+    'name_entity', 'nivel_educacion', 'titulo','ano_titulo',  'otra_actividad','fuente_ingreso',  'regimen_salud', 'health_regimen',
+    'regimen_pension',  'regimen_arl', 'created',)
     list_display_links = ('pk',)
 
     search_fields = ( 'identification','name', 'other_name', 'last_name', 'last_name2',)
     #list_filter = ('user',)
     fieldsets = (
-        ('Información personal', {
-            'fields': (( 'image', 'tipo','user','type_document', 'identification','name', 'other_name', 'last_name', 'last_name2', 'artistic_name',  'gender', 'etnico',
-                'disability', 'population_group', 'rut', 'code_rut',),
+        ('DATOS DE IDENTIFICACIÓN', {
+            'fields': (( 'tipo','user', 'name', 'last_name','artistic_name', 'gender', 'birthday', 'lugar_nacimiento', 'type_document',  'identification', 'lugar_expedicion',
+            'tarjeta_profesional', 'expedicion_tarjeta', 'passport', 'expedicion_passport', 'vencimiento_passport', 'posee_discapacidad', 'disability', 'posee_etnico', 'etnico','esvictima',
+            'victima',),
                        ),
 
         }),
-        ('Datos Ubicación', {
-            'fields': (( 'country', 'state', 'city', 'zone', 'adress', 'zona','housing_stratum', 'phone_movil', 'phone',
-                          'email',),),
+        ('DATOS DE UBICACIÓN', {
+            'fields': (( 'city', 'zona', 'adress','adress2', 'phone', 'phone_movil', 'email','web',),),
 
         }),
-        ('Sector y area de trabajo', {
-            'fields': (('sector', 'area2'),),
+        ('CARACTERÍSTICAS GENERALES', {
+            'fields': (('desarrollo_practica', 'forma_practica', 'area2','practica','vigia_patrimonio','portador_manifestacion', 'manifestation', 'cual_practica', 'pertenece_entidad', 'vinculacion_entidad',
+    'name_entity', 'tipo_formacion', 'nivel_educacion', 'titulo','ano_titulo', 'entidad_educativa', 'reseña_trayectoria','servicios','facebook','instagram',),),
 
         }),
-        ('Información socio económica', {
-            'fields': ('health_regimen', 'pension_regimen', 'monthly_income',),
+        ('INFORMACIÓN SOCIO ECONÓMICA', {
+            'fields': ('tipo_vivienda','housing_stratum', 'tipo_vinculacion', 'cual_vinculacion', 'otra_actividad','fuente_ingreso', 'porcentaje', 'regimen_salud', 'health_regimen',
+    'regimen_pension', 'pension_regimen', 'regimen_arl',),
 
         }),
 
-        ('Actividad', {
-            'fields': (('activity','vigia_patrimonio','portador_manifestacion','manifestation','formacion','mas_formacion','experiencia','terminosycondiciones','sisben',)),
+        ('DOCUMENTOS', {
+            'fields': (('sisben','terminosycondiciones','beps','created')),
 
         }),
 
@@ -345,7 +360,7 @@ class EntidadAdmin(ImportExportModelAdmin):
     list_display = (
     'pk', 'user', 'name', 'sigla', 'nit', 'reseña', 'nombre_representante', 'apellidos_representante',
     'type_document', 'identification', 'lugar_expedicion', 'nombre_contacto', 'apellidos_contacto', 'cargo',
-    'state', 'city', 'zone', 'zona', 'direccion', 'correspondencia', 'phone_movil', 'phone', 'apartado_aereo', 'email',
+    'state', 'city',  'zona', 'direccion', 'correspondencia', 'phone_movil', 'phone', 'apartado_aereo', 'email',
     'pagina_web', 'practica', 'formacion', 'tipo_produccion', 'personeria', 'naturaleza', 'caracter_entidad', 'regimen', 'subregimen','dependencia','entidad_dependiente','nivel','red',
     'name_red','nivel_red','acceso_internet','espacio','infraestructura_discapacitados','interes_cultural','nivel_interescultural','espacios_actividades',
     'genero_empleo','tipo_empleo','cantidad_noremunerado','duracion_noremunerados','cantidad_remunerado','duracion_remunerados','cantidadremunerado_ops',
@@ -359,18 +374,18 @@ class EntidadAdmin(ImportExportModelAdmin):
 
         }),
         ('2. DATOS DEL REPRESENTANTE LEGAL', {
-            'fields': (('nombre_representante', 'apellidos_representante',
+            'fields': (('nombre_representante', 'apellidos_representante','cargo_representante',
                     'type_document', 'identification', 'lugar_expedicion',),),
 
         }),
         ('3. DATOS DEL CONTACTO DE LA ORGANIZACIÓN', {
             'fields': (('nombre_contacto', 'apellidos_contacto', 'cargo',
-        'state', 'city', 'zone', 'zona', 'direccion', 'correspondencia', 'phone_movil', 'phone', 'apartado_aereo', 'email',
+        'state', 'city',  'zona', 'direccion', 'correspondencia', 'phone_movil', 'phone', 'apartado_aereo', 'email',
          'pagina_web',),),
 
         }),
         ('4. DATOS JURÌDICOS', {
-            'fields': ('practica', 'formacion', 'tipo_produccion', 'personeria', 'naturaleza', 'caracter_entidad', 'regimen', 'subregimen','dependencia','entidad_dependiente','nivel','red',
+            'fields': ('practica', 'formacion', 'tipo_produccion', 'personeria', 'naturaleza', 'caracter_entidad','objeto_social', 'regimen', 'subregimen','dependencia','entidad_dependiente','nivel','red',
              'name_red','nivel_red',),
 
         }),
@@ -389,7 +404,7 @@ class EntidadAdmin(ImportExportModelAdmin):
         }),
         ('7. ACTIVIDADES', {
             'fields': ((
-                'actividad_principal', 'otra_actividad', 'area_artistica', 'numero_obras', 'practicas', 'acceso',
+                'actividad_principal', 'otra_actividad', 'area_artistica', 'numero_obras', 'practicas', 'ultimo_año', 'acceso',
                 'proyectos', 'grupos_edad', 'grupos_poblacion', 'organizacion_actividades', 'etnico',
                 'personas_discapacidad',)),
 

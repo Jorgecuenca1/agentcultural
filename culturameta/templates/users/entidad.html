@@ -2,7 +2,7 @@
 
 <html lang="en">
   <head>
-
+  {% load static %}
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,6 +23,8 @@
   <!-- For demo purpose -->
   <div class="row py-5">
     <div class="col-lg-9 mx-auto text-red text-center">
+      <img src="{% static "img/logo.png" %}" class="img-fluid rounded mx-auto d-block pb-4" style="max-width: 60%;">
+
       <h1 class="display-4">SIDECU</h1>
       <p class="lead mb-0">AQUÍ PODRA VER TODA LA INFORMACIÓN REGISTRADA DE SU ENTIDAD</p>
 
@@ -46,11 +48,11 @@
                   <div class="container">
                 <div class="row row-cols-2">
                   <div class="col"><h3>Registrador de la entidad : <small>{{entidad.user}}</small></h3></div>
-                    <div class="col"><h3>Nombre de la entidad : <small>{{entidad.name}}</small></h3></div>
-                  <div class="col"><h3>Sigla : <small>{{entidad.sigla}}</small></h3></div>
-                  <div class="col"><h3>NIt : <small>{{entidad.nit}}</small></h3></div>
-                  <div class="col"><h3>Año de constitución : <small>{{entidad.date}}</small></h3></div>
-                  <div class="col"><h3>Reseña : <small>{{entidad.reseña}}</small></h3></div>
+                    <div class="col"><h3>1.1. NOMBRE:<small>{{entidad.name}}</small></h3></div>
+                  <div class="col"><h3>1.2. SIGLA: <small>{{entidad.sigla}}</small></h3></div>
+                  <div class="col"><h3>1.3. NIT: <small>{{entidad.nit}}</small></h3></div>
+                  <div class="col"><h3>1.4. AÑO DE CONSTITUCIÓN : <small>{{entidad.date}}</small></h3></div>
+                  <div class="col"><h3>1.5. RESEÑA : <small>{{entidad.reseña}}</small></h3></div>
 
 
                 </div>
@@ -70,11 +72,13 @@
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                      <div class="col"><h3>Nombre Representante legal : <small>{{entidad.nombre_representante}}</small></h3></div>
-                  <div class="col"><h3>Apellidos Representante legal : <small>{{entidad.apellidos_representante}}</small></h3></div>
-                  <div class="col"><h3>TIpode documento : <small>{{entidad.type_document}}</small></h3></div>
-                  <div class="col"><h3>Número de identificación : <small>{{entidad.identification}}</small></h3></div>
-                  <div class="col"><h3>Lugar de expendición : <small>{{entidad.lugar_expedicion}}</small></h3></div>
+                      <div class="col"><h3>1.6. NOMBRES DEL REPRESENTANTE LEGAL: <small>{{entidad.nombre_representante}}</small></h3></div>
+                  <div class="col"><h3>1.7. APELLIDOS DEL REPRESENTANTE LEGAL : <small>{{entidad.apellidos_representante}}</small></h3></div>
+                  <div class="col"><h3>1.8. CARGO DEL REPRESENTANTE: <small>{{entidad.cargo_representante}}</small></h3></div>
+                  <div class="col"><h3>1.9. AÑO DE VINCULACIÓN : <small>{{entidad.vinculacion_representante}}</small></h3></div>
+                  <div class="col"><h3>1.10. TIPO DOCUMENTO IDENTIDAD : <small>{{entidad.type_document}}</small></h3></div>
+                  <div class="col"><h3>1.11. NÚMERO DE DOCUMENTO: <small>{{entidad.identification}}</small></h3></div>
+                  <div class="col"><h3>1.12. LUGAR DE EXPEDICIÓN: <small>{{entidad.lugar_expedicion}}</small></h3></div>
 
                 </div>
             </div>
@@ -93,21 +97,20 @@
               <p class="font-weight-light m-0">
                <div class="container">
                 <div class="row row-cols-2">
-                    <div class="col"><h3>Nombre de contacto : <small>{{entidad.nombre_contacto}}</small></h3></div>
-                  <div class="col"><h3>Apellidos del contacto : <small>{{entidad.apellidos_contacto}}</small></h3></div>
-                  <div class="col"><h3>Cargo : <small>{{entidad.cargo}}</small></h3></div>
-                  <div class="col"><h3>Año de vinculación : <small>{{entidad.vinculacion}}</small></h3></div>
-                  <div class="col"><h3>Departamento : <small>{{entidad.state}}</small></h3></div>
-                  <div class="col"><h3>Municipio : <small>{{entidad.city}}</small></h3></div>
-                  <div class="col"><h3>Centro poblado : <small>{{entidad.zone}}</small></h3></div>
-                  <div class="col"><h3>Zona(rural-urbana) : <small>{{entidad.zona}}</small></h3></div>
-                  <div class="col"><h3>Direccion : <small>{{entidad.direccion}}</small></h3></div>
-                  <div class="col"><h3>Direccion de correspondencia : <small>{{entidad.correspondencia}}</small></h3></div>
-                  <div class="col"><h3>telefono movil : <small>{{entidad.phone_movil}}</small></h3></div>
-                  <div class="col"><h3>telefono : <small>{{entidad.phone}}</small></h3></div>
-                  <div class="col"><h3>Apartado aereo : <small>{{entidad.apartado_aereo}}</small></h3></div>
-                  <div class="col"><h3>Email : <small>{{entidad.email}}</small></h3></div>
-                  <div class="col"><h3>Pagina Web : <small>{{entidad.pagina_web}}</small></h3></div>
+                    <div class="col"><h3>1.13. NOMBRES DEL CONTACTO:<small>{{entidad.nombre_contacto}}</small></h3></div>
+                  <div class="col"><h3>1.14. APELLIDOS DEL CONTACTO: <small>{{entidad.apellidos_contacto}}</small></h3></div>
+                  <div class="col"><h3>1.15. CARGO DEL CONTACTO:: <small>{{entidad.cargo}}</small></h3></div>
+                  <div class="col"><h3>1.16. AÑO DE VINCULACIÓN: <small>{{entidad.vinculacion}}</small></h3></div>
+                  <div class="col"><h3>2.DEPARTAMENTO: <small>{{entidad.state}}</small></h3></div>
+                  <div class="col"><h3>2.1. MUNICIPIO: <small>{{entidad.city}}</small></h3></div>
+                  <div class="col"><h3>2.2. ÁREA: <small>{{entidad.zona}}</small></h3></div>
+                  <div class="col"><h3>2.3. DIRECCIÓN: <small>{{entidad.direccion}}</small></h3></div>
+                  <div class="col"><h3>2.4. DIRECCIÓN CORRESPONDENCIA : <small>{{entidad.correspondencia}}</small></h3></div>
+                  <div class="col"><h3>2.5. TELEFONO: <small>{{entidad.phone_movil}}</small></h3></div>
+                  <div class="col"><h3>2.6. FAX : <small>{{entidad.phone}}</small></h3></div>
+                  <div class="col"><h3>2.7. APARTADO AÉREO: <small>{{entidad.apartado_aereo}}</small></h3></div>
+                  <div class="col"><h3>2.8. E-MAIL: : <small>{{entidad.email}}</small></h3></div>
+                  <div class="col"><h3>2.9. PÁGINA WEB: <small>{{entidad.pagina_web}}</small></h3></div>
 
 
 
@@ -127,17 +130,21 @@
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                    <div class="col"><h3>Tiene personería jurídica? : <small>{{entidad.personeria}}</small></h3></div>
-                  <div class="col"><h3>Naturaleza : <small>{{entidad.naturaleza}}</small></h3></div>
-                  <div class="col"><h3>Caracter de la entidad : <small>{{entidad.caracter_entidad}}</small></h3></div>
-                  <div class="col"><h3>Tipo de Regimen : <small>{{entidad.regimen}}</small></h3></div>
-                  <div class="col"><h3>Tipo de Subregimen : <small>{{entidad.subregimen}}</small></h3></div>
-                  <div class="col"><h3>Depende de alguna entidad : <small>{{entidad.dependencia}}</small></h3></div>
-                  <div class="col"><h3>Nombre de la entidad : <small>{{entidad.entidad_dependiente}}</small></h3></div>
-                  <div class="col"><h3>Nivel de la entidad : <small>{{entidad.nivel}}</small></h3></div>
-                  <div class="col"><h3>La entidad pertenece alguna red? : <small>{{entidad.red}}</small></h3></div>
-                  <div class="col"><h3>Nombre de la red : <small>{{entidad.name_red}}</small></h3></div>
-                  <div class="col"><h3>Nivel de la red : <small>{{entidad.nivel_red}}</small></h3></div>
+                  <div class="col"><h3>3.1. PRÁCTICA ARTÍSTICA: <small>{{entidad.practica}}</small></h3></div>
+                  <div class="col"><h3>3.2. FORMACIÓN: <small>{{entidad.formacion}}</small></h3></div>
+                  <div class="col"><h3>3.3. PRODUCCIÓN, COMERCIALIZACIÓN Y DIVULGACIÓN:  <small>{{entidad.tipo_produccion}}</small></h3></div>
+                    <div class="col"><h3>3.4. TIENE PERSONERÍA JURÍDICA?: <small>{{entidad.personeria}}</small></h3></div>
+                  <div class="col"><h3>3.5. NATURALEZA: <small>{{entidad.naturaleza}}</small></h3></div>
+                  <div class="col"><h3>3.6. CARÁCTER DE LA ENTIDAD: <small>{{entidad.caracter_entidad}}</small></h3></div>
+                  <div class="col"><h3>3.7. OBJETO SOCIAL : <small>{{entidad.objeto_social}}</small></h3></div>
+                  <div class="col"><h3>3.8. TIPO DE REGIMEN: <small>{{entidad.regimen}}</small></h3></div>
+                  <div class="col"><h3>3.9. SUBREGIMEN: : <small>{{entidad.subregimen}}</small></h3></div>
+                  <div class="col"><h3>3.10. DEPENDE DE ALGUNA ENTIDAD:  <small>{{entidad.dependencia}}</small></h3></div>
+                  <div class="col"><h3>3.11. NOMBRE DE LA ENTIDAD: <small>{{entidad.entidad_dependiente}}</small></h3></div>
+                  <div class="col"><h3>3.12. NIVEL: <small>{{entidad.nivel}}</small></h3></div>
+                  <div class="col"><h3>3.13. LA ENTIDAD PERTENECE A ALGUNA RED? : <small>{{entidad.red}}</small></h3></div>
+                  <div class="col"><h3>3.14. NOMBRE DE LA RED: <small>{{entidad.name_red}}</small></h3></div>
+                  <div class="col"><h3>3.15. NIVEL: <small>{{entidad.nivel_red}}</small></h3></div>
 
 
 
@@ -159,12 +166,12 @@
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                  <div class="col"><h3>Tiene la organización acceso a internet? : <small>{{entidad.acceso_internet}}</small></h3></div>
-                  <div class="col"><h3>Espacio : <small>{{entidad.espacio}}</small></h3></div>
-                  <div class="col"><h3>Cuenta la entidad con infraestructura para discapacitados? : <small>{{entidad.infraestructura_discapacitados}}</small></h3></div>
-                  <div class="col"><h3>Ocupa la entidad un bien de interés cultural? : <small>{{entidad.interes_cultural}}</small></h3></div>
-                  <div class="col"><h3>Nivel del bien de interes cultural que ocupa? : <small>{{entidad.nivel_interescultural}}</small></h3></div>
-                  <div class="col"><h3>Espacio disponibles por la organización para el desarrollo de sus actividades : <small>{{entidad.espacios_actividades}}</small></h3></div>
+                  <div class="col"><h3>4.1. ¿TIENE LA ORGANIZACIÓN ACCESOS A INTERNET?: <small>{{entidad.acceso_internet}}</small></h3></div>
+                  <div class="col"><h3>4.2. ESPACIO : <small>{{entidad.espacio}}</small></h3></div>
+                  <div class="col"><h3>4.3. CUENTA LA ENTIDAD CON INFRAESTRUCTURA PARA DISCAPACITADOS: <small>{{entidad.infraestructura_discapacitados}}</small></h3></div>
+                  <div class="col"><h3>4.4. OCUPA LA ENTIDAD UN BIEN DE INTERÉS CULTURAL: <small>{{entidad.interes_cultural}}</small></h3></div>
+                  <div class="col"><h3>4.5. ¿NIVEL DEL BIEN DE INTERES CULTURAL QUE OCUPA?: <small>{{entidad.nivel_interescultural}}</small></h3></div>
+                  <div class="col"><h3>4.6. ESPACIOS DISPONIBLES POR LA ORGANIZACIÓN PARA EL DESARROLLO DE SUS ACTIVIDADES: <small>{{entidad.espacios_actividades}}</small></h3></div>
 
 
 
@@ -185,15 +192,15 @@
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                    <div class="col"><h3>Su organización generó empleo directo el último año? : <small>{{entidad.genero_empleo}}</small></h3></div>
-                  <div class="col"><h3>Que tipo de empleo directo generó? : <small>{{entidad.tipo_empleo}}</small></h3></div>
-                  <div class="col"><h3>Cuántos empleos no remunerados generó? : <small>{{entidad.cantidad_noremunerado}}</small></h3></div>
-                  <div class="col"><h3>Qué duración tuvieron los empleos no remunerados que generó? : <small>{{entidad.duracion_noremunerados}}</small></h3></div>
-                  <div class="col"><h3>Cuántos empleos remunerados generó? : <small>{{entidad.cantidad_remunerado}}</small></h3></div>
-                  <div class="col"><h3>Qué duración tuvieron los empleos remunerados que generó? : <small>{{entidad.duracion_remunerados}}</small></h3></div>
-                  <div class="col"><h3>Cuántos empleos remunerados generó por contratos de servicios? : <small>{{entidad.cantidadremunerado_ops}}</small></h3></div>
-                  <div class="col"><h3>Cuántos empleos remunerados generó por contrato laboral? : <small>{{entidad.cantidadremunerado_laboral}}</small></h3></div>
-                  <div class="col"><h3>Cantidad de recurso humano con el que cuenta la entidad? : <small>{{entidad.cantidadrecurso_humano}}</small></h3></div>
+                    <div class="col"><h3>5.1. ¿SU ORGANIZACIÓN GENERÓ EMPLEO DIRECTO EL ÚLTIMO AÑO? : <small>{{entidad.genero_empleo}}</small></h3></div>
+                  <div class="col"><h3>5.2. ¿QUÉ TIPO DE EMPLEO DIRECTO GENERÓ?: <small>{{entidad.tipo_empleo}}</small></h3></div>
+                  <div class="col"><h3>5.3. ¿CUÁNTOS EMPLEOS NO REMUNERADOS GENERÓ?: <small>{{entidad.cantidad_noremunerado}}</small></h3></div>
+                  <div class="col"><h3>5.4. ¿QUÉ DURACIÓN TUVIERON LOS EMPLEOS NO REMUNERADOS QUE GENERÓ?: <small>{{entidad.duracion_noremunerados}}</small></h3></div>
+                  <div class="col"><h3>5.5. ¿CUÁNTOS EMPLEOS REMUNERADOS GENERÓ?: <small>{{entidad.cantidad_remunerado}}</small></h3></div>
+                  <div class="col"><h3>5.6. ¿QUÉ DURACIÓN TUVIERON LOS EMPLEOS REMUNERADOS QUE GENERÓ?: <small>{{entidad.duracion_remunerados}}</small></h3></div>
+                  <div class="col"><h3>5.7. ¿CUÁNTOS EMPLEOS REMUNERADOS GENERÓ POR CONTRATOS DE SERVICIOS?: <small>{{entidad.cantidadremunerado_ops}}</small></h3></div>
+                  <div class="col"><h3>5.8. ¿CUÁNTOS EMPLEOS REMUNERADOS GENERÓ POR CONTRATO LABORAL?: <small>{{entidad.cantidadremunerado_laboral}}</small></h3></div>
+                  <div class="col"><h3>5.9. ¿CANTIDAD DE RECURSO HUMANO CON EL QUE CUENTA LA ENTIDAD?: <small>{{entidad.cantidadrecurso_humano}}</small></h3></div>
 
 
 
@@ -214,18 +221,19 @@
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                   <div class="col"><h3>EL CAMPO DE LA PRINCIPAL ACTIVIDAD ARTÍSTICA O CULTURAL QUE DESARROLLA LA ORGANIZACIÓN ES : <small>{{entidad.actividad_principal}}</small></h3></div>
-                  <div class="col"><h3>OTROS CAMPOS DE ACTIVIDADES EN QUE TRABAJA LA ORGANIZACIÓN SON: <small>{{entidad.otra_actividad}}</small></h3></div>
-                  <div class="col"><h3>EL ÁREA ARTÍSTICA EN LA QUE LA ORGANIZACIÓN DESARROLLA SU PRINCIPAL ACTIVIDAD ES: <small>{{entidad.area_artistica}}</small></h3></div>
-                  <div class="col"><h3>¿NÚMERO DE OBRAS PRODUCIDAS DURANTE EL ÚLTIMO AÑO, COMO EL RESULTADO DE LA PRÁCTICA ARTÍSTICA QUE DESARROLLA LAORGANIZACIÓN?: <small>{{entidad.numero_obras}}</small></h3></div>
-                  <div class="col"><h3>¿LAS PRÁCTICAS ASTÍSTICAS QUE REALIZA LA ORGANIZACIÓN INCLUYEN ACTIVIDADES DE FORMACIÓN DE PÚBLICOS?  : <small>{{entidad.practicas}}</small></h3></div>
-                  <div class="col"><h3>EL ACCESO DEL PÚBLICO AL RESULTADO DE LA PRÁCTICA ARTÍSTICA QUE DESARROLLA LA ORGANIZACIÓN ES DE CARÁCTER : <small>{{entidad.acceso}}</small></h3></div>
-                  <div class="col"><h3>¿LA ENTIDAD ORGANIZA REGULARMENTE PROGRAMAS O PROYECTOS ENFOCADOS ESPECÍFICAMENTE A ATENDER NIÑOS , JO¿ÓVENES, ADULTOS O PERSONAS MAYORES? : <small>{{entidad.proyectos}}</small></h3></div>
-                  <div class="col"><h3>¿HACIA CUÁLES GRUPOS DE EDAD SE ENFOCAN ESOS PROGRAMAS O PROYECTOS?: <small>{{entidad.grupos_edad}}</small></h3></div>
-                  <div class="col"><h3>¿A QUE GRUPO PERTENECE LA POBLACIÓN BENEFICIARÍA DE LA PRODUCCIÓN ARTISTÍCA Y CULTURAL DE LA ORGANIZACIÓN?: <small>{{entidad.grupos_poblacion}}</small></h3></div>
-                  <div class="col"><h3>¿DESARROLLA LA ORGANIZACIÓN ACTIVIDADES ESPECÍFICAMENTE DIRIGIDAS A PERSONAS CON DISCAPACIDAD? <small>{{entidad.organizacion_actividades}}</small></h3></div>
-                  <div class="col"><h3>¿HACÍA CUALES MINORÍAS ÉTNICAS SE ENFOCAN ESTOS PROGRAMAS O PROYECTOS? : <small>{{entidad.etnico}}</small></h3></div>
-                  <div class="col"><h3>¿DESARROLLA LA ORGANIZACIÓN ACTIVIDADES ESPECÍFICAMENTE DIRIGIDAS A PERSONAS CON DISCAPACIDAD?: <small>{{entidad.personas_discapacidad}}</small></h3></div>
+                   <div class="col"><h3>6.1.EL CAMPO DE LA PRINCIPAL ACTIVIDAD ARTÍSTICA O CULTURAL QUE DESARROLLA LA ORGANIZACIÓN ES : <small>{{entidad.actividad_principal}}</small></h3></div>
+                  <div class="col"><h3>6.2.OTROS CAMPOS DE ACTIVIDADES EN QUE TRABAJA LA ORGANIZACIÓN SON: <small>{{entidad.otra_actividad}}</small></h3></div>
+                  <div class="col"><h3>6.3.EL ÁREA ARTÍSTICA EN LA QUE LA ORGANIZACIÓN DESARROLLA SU PRINCIPAL ACTIVIDAD ES: <small>{{entidad.area_artistica}}</small></h3></div>
+                  <div class="col"><h3>6.4.¿NÚMERO DE OBRAS PRODUCIDAS DURANTE EL ÚLTIMO AÑO, COMO EL RESULTADO DE LA PRÁCTICA ARTÍSTICA QUE DESARROLLA LAORGANIZACIÓN?: <small>{{entidad.numero_obras}}</small></h3></div>
+                  <div class="col"><h3>6.5.¿LAS PRÁCTICAS ASTÍSTICAS QUE REALIZA LA ORGANIZACIÓN INCLUYEN ACTIVIDADES DE FORMACIÓN DE PÚBLICOS?  : <small>{{entidad.practicas}}</small></h3></div>
+                  <div class="col"><h3>6.6.DURANTE EL ÚLTIMO AÑO EL PROMEDIO MENSUAL APROXIMADO DE PERSONAS (PÚBLICO) QUE ASISTIERON A LA ACTIVIDAD ARTÍSTICA O CULTURAL DE LA ORGANIZACIÓ FUE:   : <small>{{entidad.ultimo_año}}</small></h3></div>
+                  <div class="col"><h3>6.7.EL ACCESO DEL PÚBLICO AL RESULTADO DE LA PRÁCTICA ARTÍSTICA QUE DESARROLLA LA ORGANIZACIÓN ES DE CARÁCTER : <small>{{entidad.acceso}}</small></h3></div>
+                  <div class="col"><h3>6.8.¿LA ENTIDAD ORGANIZA REGULARMENTE PROGRAMAS O PROYECTOS ENFOCADOS ESPECÍFICAMENTE A ATENDER NIÑOS , JO¿ÓVENES, ADULTOS O PERSONAS MAYORES? : <small>{{entidad.proyectos}}</small></h3></div>
+                  <div class="col"><h3>6.9.¿HACIA CUÁLES GRUPOS DE EDAD SE ENFOCAN ESOS PROGRAMAS O PROYECTOS?: <small>{{entidad.grupos_edad}}</small></h3></div>
+                  <div class="col"><h3>6.10.¿A QUE GRUPO PERTENECE LA POBLACIÓN BENEFICIARÍA DE LA PRODUCCIÓN ARTISTÍCA Y CULTURAL DE LA ORGANIZACIÓN?: <small>{{entidad.grupos_poblacion}}</small></h3></div>
+                  <div class="col"><h3>6.11.¿DESARROLLA LA ORGANIZACIÓN ACTIVIDADES DIRIGIDAS A MINORÍAS ÉTNICAS? <small>{{entidad.organizacion_actividades}}</small></h3></div>
+                  <div class="col"><h3>6.12.¿HACÍA CUALES MINORÍAS ÉTNICAS SE ENFOCAN ESTOS PROGRAMAS O PROYECTOS? : <small>{{entidad.etnico}}</small></h3></div>
+                  <div class="col"><h3>6.13.¿DESARROLLA LA ORGANIZACIÓN ACTIVIDADES ESPECÍFICAMENTE DIRIGIDAS A PERSONAS CON DISCAPACIDAD?: <small>{{entidad.personas_discapacidad}}</small></h3></div>
 
 
 
@@ -248,8 +256,8 @@
               <p class="font-weight-light m-0">
                   <div class="container">
                 <div class="row row-cols-2">
-                   <div class="col"><h3>¿AREAS ARTÍSTICAS EN LAS QUE IMPARTE FORMACIÓN? : <small>{{entidad.imparte_formacion}}</small></h3></div>
-                  <div class="col"><h3>PRINCIPAL MODALIDAD DE FORMACIÓN QUE IMPARTE LA ORGANIZACIÓN : <small>{{entidad.modalidad}}</small></h3></div>
+                   <div class="col"><h3>7.1.¿AREAS ARTÍSTICAS EN LAS QUE IMPARTE FORMACIÓN? : <small>{{entidad.imparte_formacion}}</small></h3></div>
+                  <div class="col"><h3>7.2.PRINCIPAL MODALIDAD DE FORMACIÓN QUE IMPARTE LA ORGANIZACIÓN : <small>{{entidad.modalidad}}</small></h3></div>
 
 
 
@@ -292,7 +300,14 @@
                 </div>
                 </div>
             </div>
+<div class="container">
+                <div class="row py-3">
+    <div class="col-lg-4 mx-auto text-white text-center">
+                     <a class="btn btn-primary" href="{% url 'export-pdfe' %}">Generar PDF</a>
 
+                </div>
+                </div>
+            </div>
 
 {% endfor %}
     <!-- jQuery first, then Bootstrap JS. -->
