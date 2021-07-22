@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'import_export',
     'weasyprint',
     'corsheaders',
+    'formularios',
 
 ]
 CRISPY_TEMPLATE_PACK = 'uni_form'
