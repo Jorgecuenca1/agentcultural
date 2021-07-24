@@ -17,10 +17,13 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 from agentcultural import views as agentcultural_views
+from formularios import views as formularios_views
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('users/pqrsd/',formularios_views.pqrsd,name='pqrsd'),
+    path('users/encuestatransparencia/',formularios_views.encuestatransparencia,name='encuestatransparencia'),
     path('users/signup/',agentcultural_views.signup,name='signup'),
     path('users/login/',agentcultural_views.login_view,name='login'),
     path('users/datos/',agentcultural_views.datos, name='datos'),
