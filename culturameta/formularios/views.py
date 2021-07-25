@@ -22,7 +22,7 @@ def pqrsd(request):
         country.typosolicitud = tiposolicitud
 
         country.save()
-        return redirect(f'/users/pqrsd')
+        return  redirect(f'www.google.com')
     return render(request, 'users/pqrsd.html',{'tiposolicituds': tiposolicituds,'tipodocumentos':tipodocumentos})
 
 def encuestatransparencia(request):

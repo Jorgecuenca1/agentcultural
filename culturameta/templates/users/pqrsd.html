@@ -46,46 +46,76 @@
         {% csrf_token %}
             <br>
         <br>
-        <br>
-        <div class="form-group">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container border border-dark mt-3 rounded">
+        <div class="row justify-content-center" style="background-color: #DAEDFB;">
+            <div class="col-sm-5 logo mt-2">
+                <img src="{% static 'img/logo.png' %}" width="200px"/>
+            </div>
+            <div class="col-sm-7 mt-2 text-center">
+                <h4 class="font-weight-bold text-uppercase justify-content-center">FORMULARIO <br/>PQRSD</h4>
+                <div class="text-center rounded mt-4 bg-light" class="bg-light">
+                  <span class="text-danger font-weight-bold">No.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" style="background-color: #DAEDFB;">
+            <h4 class="text-uppercase font-weight-bold m-1">Información Personal</h4>
+        </div>
+        <div class="row justify-content-center">
+
+            <div class="col-md-6">
+                <div class="d-flex flex-column mb-10 mb-md-0">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">Nombres y Apellidos:</span>
+                        <div class="form-group">
             <input class="form-control" type="text" placeholder="name" name="name" required="false" />
         </div>
 
         <div class="form-group">
             <input class="form-control" type="text" placeholder="last_name" name="last_name" required="false" />
         </div>
-
-
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="cedula" name="cedula" required="true" />
-        </div>
-
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="correo electronico" name="correo_electronico" required="true" />
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="phone_number" name="phone_number" required="true" />
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="asunto" name="asunto" required="true" />
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="solicitud" name="solicitud" required="true" />
-        </div>
-
-        <option value="">---------</option>
-<tr><th><label for="id_tiposolicitud">Pais:</label></th><td><select name="tiposolicitud" required id="id_tiposolicitud">
- {% for tiposolicitud in tiposolicituds %}
-
-  <option value="" selected>---------</option>
-
-  <option value={{ tiposolicitud.id }}>{{ tiposolicitud.name }}</option>
-
-{% endfor %}
-</select></td></tr>
-
-        <option value="">---------</option>
-<tr><th><label for="id_tipodocumento">Departamento:</label></th><td><select name="tipodocumento" required id="id_tipodocumento">
+                        <span class="text-right"> </span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">Tipo de Documento:</span>
+                        <span class="text-right"></span>
+                        <tr><th><label for="id_tipodocumento"></label></th><td><select name="tipodocumento" required id="id_tipodocumento">
  {% for tipodocumento in tipodocumentos %}
 
   <option value="" selected>---------</option>
@@ -94,9 +124,93 @@
 
 {% endfor %}
 </select></td></tr>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">Email:</span>
+                        <span class="text-right"></span>
+                        <div class="form-group">
+            <input class="form-control" type="text" placeholder="correo electronico" name="correo_electronico" required="true" />
+        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">Teléfono:</span>
+                        <span class="text-right"></span>
+                        <div class="form-group">
+            <input class="form-control" type="text" placeholder="phone_number" name="phone_number" required="true" />
+        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-column mb-10 mb-md-0">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">Cargo:</span>
+                        <span class="text-right"></span>
+<tr><th><label for="id_tiposolicitud"></label></th><td><select name="tiposolicitud" required id="id_tiposolicitud">
+ {% for tiposolicitud in tiposolicituds %}
 
- <button class="btn btn-primary btn-block mt-5" type="submit">Register!</button>
+  <option value="" selected>---------</option>
 
-    </form>
+  <option value={{ tiposolicitud.id }}>{{ tiposolicitud.name }}</option>
+
+{% endfor %}
+</select></td></tr>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">Documento de Identidad:</span>
+                        <span class="text-right"></span>
+                        <div class="form-group">
+            <input class="form-control" type="text" placeholder="cedula" name="cedula" required="true" />
+        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">Dirección:</span>
+                        <span class="text-right"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="background-color: #DAEDFB;">
+            <h4 class="text-uppercase font-weight-bold m-1">Laboratorios</h4>
+        </div>
+        <div class="row justify-content-center">
+
+            <div class="col-md-12-center mt-3">
+
+                <ol>
+
+                    <li> <b>
+                        <span class="mr-15 font-weight-bold">Documento de Identidad:</span>
+                        <span class="text-right"></span>
+                        <div class="form-group">
+            <input class="form-control" type="text" placeholder="asunto" name="asunto" required="true" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="solicitud" name="solicitud" required="true" />
+        </div>
+
+                    </b></li>
+
+                </ol>
+
+                <p>There are test available.</p>
+                <button class="btn btn-primary btn-block mt-5" type="submit" value="OK">Register!</button>
+
+
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+        <br>
+</form>
+
+
+
 
 {% endblock %}

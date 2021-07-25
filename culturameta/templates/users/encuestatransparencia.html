@@ -48,22 +48,77 @@
         <br>
         <br>
 
-        <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="True" id="facil" name="facil">
-    <label class="form-check-label" for="facil">delegado</label>
-  </div>
-        <div class="form-group">
+
+
+
+    <div class="container border border-dark mt-3 rounded">
+        <div class="row justify-content-center" style="background-color: #DAEDFB;">
+            <div class="col-sm-5 logo mt-2">
+                <img src="{% static 'img/logo.png' %}" width="200px"/>
+            </div>
+            <div class="col-sm-7 mt-2 text-center">
+                <h4 class="font-weight-bold text-uppercase justify-content-center">ENCUESTA <br/>TRANSPARENCIA</h4>
+                <div class="text-center rounded mt-4 bg-light" class="bg-light">
+                  <span class="text-danger font-weight-bold">No.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center" style="background-color: #DAEDFB;">
+            <h4 class="text-uppercase font-weight-bold m-1">Encuesta</h4>
+        </div>
+        <div class="row justify-content-center">
+
+            <div class="col-md-12">
+                <div class="d-flex flex-column mb-10 mb-md-0">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">1. Encontró la información que buscaba?::</span>
+
+                        <span class="text-right"> </span>
+                          <tr><th><label for="id_encontro"></label></th><td><select name="encontro" required id="id_encontro">
+
+
+
+<option value="" selected>---------</option>
+  <option value=SI>SI</option>
+    <option value=NO>NO</option>
+
+
+</select></td></tr>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">2. Si no la encontró especifique en este espacio ¿qué buscaba?:</span>
+                        <span class="text-right"></span>
+                           <div class="form-group">
             <input class="form-control" type="text" placeholder="noencontro" name="noencontro" required="false" />
         </div>
 
-        <div class="form-group">
-            <input class="form-control" type="text" placeholder="sugerencia" name="sugerencia" required="false" />
-        </div>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">3. ¿Le resultó fácil la ruta de acceso a la información?:</span>
+                        <span class="text-right"></span>
+                         <tr><th><label for="id_facil"></label></th><td><select name="facil" required id="id_facil">
 
 
 
-        <option value="">---------</option>
-<tr><th><label for="id_nivel">Nivel</label></th><td><select name="nivel" required id="id_nivel">
+<option value="" selected>---------</option>
+  <option value=SI> SI</option>
+    <option value=NO> NO</option>
+
+
+</select></td></tr>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="d-flex flex-column mb-10 mb-md-0">
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">
+4. ¿A nivel general, cómo define la información contenida en la página web?</span>
+                        <span class="text-right"></span>
+<tr><th><label for="id_nivel"></label></th><td><select name="nivel" required id="id_nivel">
  {% for nivel in nivels %}
 
   <option value="" selected>---------</option>
@@ -73,22 +128,42 @@
 {% endfor %}
 </select></td></tr>
 
-          <option value="">---------</option>
-<tr><th><label for="id_encontro">Nivel</label></th><td><select name="encontro" required id="id_encontro">
+                    </div>
+                    <div class="d-flex justify-content-between mb-3">
+                        <span class="mr-15 font-weight-bold">5. Si tiene alguna sugerencia escribanos en el siguiente espacio, recuerde que su opinión es muy importante para mejorar nuestro servicio.</span>
+                        <span class="text-right"></span>
+                         <div class="form-group">
 
-
-  <option value="" selected>---------</option>
-
-  <option value={{SI}}>SI</option>
-    <option value={{NO}}>NO</option>
-
-
-</select></td></tr>
+                 <input class="form-control" type="text" placeholder="sugerencia" name="sugerencia" required="false" />
+                 </div>
 
 
 
- <button class="btn btn-primary btn-block mt-5" type="submit">Register!</button>
+                    </div>
+<div class="d-flex justify-content-between mb-3">
+                        <button class="btn btn-primary btn-block mt-5" type="submit" value="OK">Enviar encuesta</button>
 
-    </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+        <br>
+</form>
+
+
+
+
+
+
+
 
 {% endblock %}
