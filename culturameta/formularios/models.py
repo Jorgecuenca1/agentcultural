@@ -17,6 +17,8 @@ class Tiposolicitud(models.Model):
         verbose_name = 'Tipo de solicitud'
         verbose_name_plural = 'TIpo de solicitud'
 
+
+
 class Nivel(models.Model):
     name = models.CharField(max_length=30, blank=True, verbose_name='Nivel')
 

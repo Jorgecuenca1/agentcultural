@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/pqrsd/',formularios_views.pqrsd,name='pqrsd'),
     path('users/encuestatransparencia/',formularios_views.encuestatransparencia,name='encuestatransparencia'),
+    path('users/exito/',formularios_views.exito,name='exito'),
     path('users/signup/',agentcultural_views.signup,name='signup'),
     path('users/login/',agentcultural_views.login_view,name='login'),
     path('users/datos/',agentcultural_views.datos, name='datos'),

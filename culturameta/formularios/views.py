@@ -3,7 +3,10 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from .models import Pqrsd, Tiposolicitud, TypeDocument, Nivel, EncuestaTransparencia
 
+def exito(request):
 
+
+    return render(request, 'users/exito.html')
 def pqrsd(request):
     tipodocumentos = TypeDocument.objects.all().values('id', 'name')
     tiposolicituds = Tiposolicitud.objects.all().values('id', 'name')
@@ -22,7 +25,7 @@ def pqrsd(request):
         country.typosolicitud = tiposolicitud
 
         country.save()
-        return  redirect(f'www.google.com')
+        return  redirect(f'/users/exito')
     return render(request, 'users/pqrsd.html',{'tiposolicituds': tiposolicituds,'tipodocumentos':tipodocumentos})
 
 def encuestatransparencia(request):
@@ -38,5 +41,5 @@ def encuestatransparencia(request):
         country.sugerencia = request.POST['sugerencia']
 
         country.save()
-        return redirect(f'/users/encuestatransparencia')
+        return redirect(f'/users/exito')
     return render(request, 'users/encuestatransparencia.html',{'nivels': nivels,})
