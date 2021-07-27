@@ -624,7 +624,7 @@ class AgentCultural(models.Model):
     terminosycondiciones = models.CharField(max_length=2, choices=BOOLEAN_CHOICES,
                                             verbose_name='Acepta terminos y condiciones', null=True,
                                             blank=True)
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
 
     def __str__(self):
