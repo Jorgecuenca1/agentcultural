@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+  </head>
+<body>
+
+<br/>
+  <div class="container">
+                <div class="row py-3">
+    <div class="col-lg-4 mx-auto text-white text-center">
+                     <a href="/users/signup" class="btn btn-primary btn-block mt-5" role="button">Registrarse</a>
+
+                </div>
+                </div>
+            </div>
+<br/>
+<br/>
+
+<div class="row">
+    {% for profile in profiles %}
+    <div class="col-sm-1">
+
+  </div>
+  <div class="col-sm-5">
+    <div class="card">
+      <div class="card-body">
+
+        <h3 class="card-title">{{profile.name}}</h3>
+        <p class="card-text">NOMBRE ARTISTICO:{{profile.artistic_name}}</p>
+                    <div class="col"><h7>APELLIDOS: <small>{{profile.last_name}}</small></h7></div>
+                    <div class="col"><h7>NOMBRE ARTÍSTICO: <small>{{profile.artistic_name}}</small></h7></div>
+                    <div class="col"><h7>MUNICIPIO: <small>{{profile.city}}</small></h7></div>
+                    <div class="col"><h7>ÁREA: <small>{{profile.zona}}</small></h7></div>
+                    <div class="col"><h7>DIRECCIÓN DE VIVIENDA: <small>{{profile.adress}}</small></h7></div>
+                    <div class="col"><h7>DIRECCIÓN DE CORRESPONDENCIA: <small>{{profile.adress2}}</small></h7></div>
+                    <div class="col"><h7>TELÉFONO: <small>{{profile.phone}}</small></h7></div>
+                    <div class="col"><h7>CELULAR: <small>{{profile.phone_movil}}</small></h7></div>
+                    <div class="col"><h7>SERVICIOS : <small>{{profile.servicios}}</small></h7></div>
+                    <div class="col"><h7>FACEBOOK: <small>{{profile.facebook}}</small></h7></div>
+                    <div class="col"><h7>INSTAGRAM: <small>{{profile.instagram}}</small></h7></div>
+                    <div class="col"><h7>PÁGINA WEB: <small>{{profile.web}}</small></h7></div>
+      </div>
+    </div>
+  </div>
+
+   {% endfor %}
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -79,6 +79,16 @@ def portafolio(request):
 
     return render(request, 'users/portafolio.html',
                   {'profiles': profiles,})
+
+def informacion(request):
+    user = request.user
+
+
+    profiles = AgentCultural.objects.filter( created__lte=timezone.now()).order_by('created')
+
+    return render(request, 'users/informacion.html',
+                  {'profiles': profiles,})
+
 def entidad(request):
     user = request.user
 
