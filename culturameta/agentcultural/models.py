@@ -509,12 +509,12 @@ class AgentCultural(models.Model):
     identification = models.IntegerField(max_length=30, verbose_name='1.8. NÚMERO DE DOCUMENTO', blank=True, null=True)
     lugar_expedicion = models.CharField(max_length=30, blank=True, verbose_name='1.9. LUGAR DE EXPEDICIÓN', null=True)
     tarjeta_profesional = models.CharField(max_length=30, blank=True, verbose_name='1.10. TARJETA PROFESIONAL', null=True)
-    expedicion_tarjeta = models.DateField(verbose_name='1.11. FECHA DE EXPEDICIÓN', auto_now=True, editable=False, blank=True,
+    expedicion_tarjeta = models.DateField(verbose_name='1.11. FECHA DE EXPEDICIÓN', auto_now=False, editable=True, blank=True,
                                 null=True)
     passport = models.CharField(max_length=30, blank=True, verbose_name='1.12. PASAPORTE', null=True)
-    expedicion_passport = models.DateField(verbose_name='1.13. FECHA DE EXPEDICIÓN', auto_now=True, editable=False, blank=True,
+    expedicion_passport = models.DateField(verbose_name='1.13. FECHA DE EXPEDICIÓN', auto_now=False, editable=True, blank=True,
                                           null=True)
-    vencimiento_passport = models.DateField(verbose_name='1.14. FECHA DE VENCIMIENTO', auto_now=True, editable=False, blank=True,
+    vencimiento_passport = models.DateField(verbose_name='1.14. FECHA DE VENCIMIENTO', auto_now=False, editable=True, blank=True,
                                            null=True)
     posee_discapacidad = models.CharField(max_length=2, choices=BOOLEAN_CHOICES, verbose_name='1.15. ¿POSEE ALGUNA DISCAPACIDAD FÍSICA?', null=True, blank=True)
     disability = models.ForeignKey(Disability, verbose_name='1.16. ¿CUÁL ?', on_delete=models.PROTECT, blank=True,
@@ -553,7 +553,7 @@ class AgentCultural(models.Model):
                                            verbose_name='3.5. ¿PERTENECE A UNA ORGANIZACIÓN ARTÍSTICA O CULTURAL?',
                                            null=True,
                                            blank=True)
-    vinculacion_entidad = models.DateField(verbose_name='3.6. ¿DESDE QUÉ AÑO ESTÁ VINCULADO A LA ORGANIZACIÓN ARTÍSTICA O CULTURAL?', auto_now=True, editable=False,
+    vinculacion_entidad = models.DateField(verbose_name='3.6. ¿DESDE QUÉ AÑO ESTÁ VINCULADO A LA ORGANIZACIÓN ARTÍSTICA O CULTURAL?', auto_now=False, editable=True,
                                           blank=True,
                                           null=True)
     name_entity = models.CharField(max_length=30, blank=True, verbose_name='3.7. NOMBRE DE LA ORGANIZACIÓN ARTÍSTICA O CULTURAL', null=True)
@@ -564,7 +564,7 @@ class AgentCultural(models.Model):
                                 null=True)
 
     titulo = models.CharField(max_length=30, blank=True, verbose_name='3.10.TÍTULO RECIBIDO', null=True)
-    ano_titulo = models.DateField(verbose_name='3.11. AÑO ', auto_now=True, editable=False,
+    ano_titulo = models.DateField(verbose_name='3.11. AÑO ', auto_now=False, editable=True,
                                            blank=True,
                                            null=True)
     entidad_educativa = models.CharField(max_length=60, blank=True, verbose_name='3.12. NOMBRE DE ENTIDAD EDUCATIVA', null=True)
@@ -692,12 +692,12 @@ class Entidad(models.Model):
     name = models.CharField(verbose_name='1.1. NOMBRE:', max_length=254, blank=True, null=True)
     sigla = models.CharField(verbose_name='1.2. SIGLA:', max_length=254, blank=True, null=True)
     nit = models.CharField(verbose_name='1.3. NIT:', max_length=10, blank=True, null=True)
-    date = models.DateField(verbose_name='1.4. AÑO DE CONSTITUCIÓN',auto_now=False,editable=False,blank=True,null=True)
+    date = models.DateField(verbose_name='1.4. AÑO DE CONSTITUCIÓN',auto_now=False,editable=True,blank=True,null=True)
     reseña = models.TextField(verbose_name='1.5. RESEÑA', blank=True, null=True)
     nombre_representante = models.CharField(verbose_name='1.6. NOMBRES DEL REPRESENTANTE LEGAL: ', max_length=254, blank=True, null=True)
     apellidos_representante = models.CharField(verbose_name='1.7. APELLIDOS DEL REPRESENTANTE LEGAL', max_length=254, blank=True, null=True)
     cargo_representante = models.CharField(verbose_name='1.8. CARGO DEL REPRESENTANTE', max_length=254, blank=True, null=True)
-    vinculacion_representante = models.DateField(verbose_name='1.9. AÑO DE VINCULACIÓN', auto_now=True, editable=False, blank=True,
+    vinculacion_representante = models.DateField(verbose_name='1.9. AÑO DE VINCULACIÓN', auto_now=False, editable=True, blank=True,
                                    null=True)
     type_document = models.ForeignKey(TypeDocument, verbose_name='1.10. TIPO DOCUMENTO IDENTIDAD:', on_delete=models.PROTECT,
                                       blank=True, null=True)

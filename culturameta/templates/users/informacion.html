@@ -2,7 +2,7 @@
 
 <html lang="en">
   <head>
-
+{% load static %}
     <!-- Required meta tags always come first -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,17 @@
 
   </head>
 <body>
+<div class="container">
+         <div class="col"><h1>PORTAFOLIO</h1></div>
+                <div class="row row-cols-2">
+                    <div class="row justify-content-center" style="background-color: #DAEDFB;">
+        <div class="col-sm-5">
+            <img src="{% static 'img/logo.png' %}" />
+            <h2>DATOS</h2>
+            </div>
+        </div>
 
+    </div>
 <br/>
   <div class="container">
                 <div class="row py-3">
