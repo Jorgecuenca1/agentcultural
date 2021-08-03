@@ -501,7 +501,7 @@ class AgentCultural(models.Model):
     last_name = models.CharField(max_length=30, blank=True, verbose_name='1.2. APELLIDOS', null=True)
     artistic_name = models.CharField(max_length=30, blank=True, verbose_name='1.3. NOMBRE ARTÍSTICO', null=True)
     gender = models.ForeignKey(Genero, verbose_name='1.4. GÉNERO', on_delete=models.PROTECT, blank=True, null=True)
-    birthday = models.DateField(verbose_name='1.5. FECHA DE NACIMIENTO', auto_now=True, editable=False, blank=True,
+    birthday = models.DateField(verbose_name='1.5. FECHA DE NACIMIENTO', auto_now=False, editable=True, blank=True,
                                 null=True)
     lugar_nacimiento = models.CharField(max_length=30, blank=True, verbose_name='1.6. LUGAR DE NACIMIENTO', null=True)
     type_document = models.ForeignKey(TypeDocument, verbose_name='1.7. TIPO DOCUMENTO IDENTIDAD', on_delete=models.PROTECT,
@@ -512,9 +512,9 @@ class AgentCultural(models.Model):
     expedicion_tarjeta = models.DateField(verbose_name='1.11. FECHA DE EXPEDICIÓN', auto_now=False, editable=True, blank=True,
                                 null=True)
     passport = models.CharField(max_length=30, blank=True, verbose_name='1.12. PASAPORTE', null=True)
-    expedicion_passport = models.DateField(verbose_name='1.13. FECHA DE EXPEDICIÓN', auto_now=False, editable=True, blank=True,
+    expedicion_passport = models.DateField(verbose_name='1.13. FECHA DE EXPEDICIÓN', editable=True,auto_now=False, blank=True,
                                           null=True)
-    vencimiento_passport = models.DateField(verbose_name='1.14. FECHA DE VENCIMIENTO', auto_now=False, editable=True, blank=True,
+    vencimiento_passport = models.DateField(verbose_name='1.14. FECHA DE VENCIMIENTO',editable=True,  auto_now=False, blank=True,
                                            null=True)
     posee_discapacidad = models.CharField(max_length=2, choices=BOOLEAN_CHOICES, verbose_name='1.15. ¿POSEE ALGUNA DISCAPACIDAD FÍSICA?', null=True, blank=True)
     disability = models.ForeignKey(Disability, verbose_name='1.16. ¿CUÁL ?', on_delete=models.PROTECT, blank=True,
@@ -553,7 +553,7 @@ class AgentCultural(models.Model):
                                            verbose_name='3.5. ¿PERTENECE A UNA ORGANIZACIÓN ARTÍSTICA O CULTURAL?',
                                            null=True,
                                            blank=True)
-    vinculacion_entidad = models.DateField(verbose_name='3.6. ¿DESDE QUÉ AÑO ESTÁ VINCULADO A LA ORGANIZACIÓN ARTÍSTICA O CULTURAL?', auto_now=False, editable=True,
+    vinculacion_entidad = models.DateField(verbose_name='3.6. ¿DESDE QUÉ AÑO ESTÁ VINCULADO A LA ORGANIZACIÓN ARTÍSTICA O CULTURAL?',editable=True,  auto_now=False,
                                           blank=True,
                                           null=True)
     name_entity = models.CharField(max_length=30, blank=True, verbose_name='3.7. NOMBRE DE LA ORGANIZACIÓN ARTÍSTICA O CULTURAL', null=True)

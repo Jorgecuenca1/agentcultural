@@ -307,7 +307,7 @@ class VictimaResource(resources.ModelResource):
 
 @admin.register(AgentCultural)
 class AgentCulturalAdmin(ImportExportModelAdmin):
-    readonly_fields = ('birthday','expedicion_tarjeta','expedicion_passport','vencimiento_passport','vinculacion_entidad','ano_titulo','created')
+    readonly_fields = ('created',)
     list_display = (
     'pk', 'tipo','user', 'name', 'last_name','artistic_name', 'gender',  'lugar_nacimiento', 'type_document',  'identification', 'lugar_expedicion',
     'tarjeta_profesional', 'expedicion_tarjeta', 'passport', 'expedicion_passport', 'vencimiento_passport', 'posee_discapacidad', 'disability', 'posee_etnico', 'etnico','esvictima',
@@ -369,7 +369,7 @@ class EntidadAdmin(ImportExportModelAdmin):
     list_display_links = ('pk',)
     fieldsets = (
         ('1. DATOS DE IDENTIFICACIÓN', {
-            'fields': (('user', 'name', 'sigla', 'nit', 'reseña',),
+            'fields': (('user', 'name', 'sigla', 'nit','date', 'reseña',),
                        ),
 
         }),
