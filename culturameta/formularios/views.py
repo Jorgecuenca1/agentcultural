@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from .models import Pqrsd, Tiposolicitud, TypeDocument, Nivel, EncuestaTransparencia
+from .forms import TorneoForm
+from .models import Pqrsd, Tiposolicitud, TypeDocument, Nivel, EncuestaTransparencia, Modalidad, Propuesta, Torneo
+
 
 def exito(request):
 
@@ -27,6 +29,21 @@ def pqrsd(request):
         country.save()
         return  redirect(f'/users/exito')
     return render(request, 'users/pqrsd.html',{'tiposolicituds': tiposolicituds,'tipodocumentos':tipodocumentos})
+
+def torneo(request):
+    if request.method == "POST":
+        # update DB
+        form = TorneoForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('torneo')
+    else:
+        # show the form
+        form = TorneoForm()
+
+    context = {'form': form}
+    return render(request, 'users/torneo.html', context)
 
 def encuestatransparencia(request):
     nivels = Nivel.objects.all().values('id', 'name')

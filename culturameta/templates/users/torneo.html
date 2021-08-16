@@ -1,0 +1,311 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+{% load static %}
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+        <div class="page-header">
+
+            <h1><a href="/">TORNEO INTERNACIONAL DEL JOROPO</a></h1>
+        </div>
+<div class="container">
+        <div class="col-sm-2 logo mt-2">
+                <img src="{% static 'img/logo.png' %}" width="200px"/>
+            </div>
+    <div class="col-sm-2 logo mt-2">
+                <img src="{% static 'img/logo.png' %}" width="200px"/>
+            </div>
+    <div class="col-sm-2 logo mt-2">
+                <img src="{% static 'img/logo.png' %}" width="200px"/>
+            </div>
+
+    </div>
+        <div class="container">
+  <!-- For demo purpose -->
+          <div class="row py-5">
+               <div class="col-lg-9 mx-auto text-primary text-center">
+                        <h1>Inscripciones al 53° Torneo Internacional del Joropo “Miguel Ángel Martín” - Homenaje al maestro Juan Farfán - 2021.</h1>
+
+                </div>
+
+               <div class="col-lg-9 mx-auto text-black text-center">
+                        <h4>El Instituto Departamental de Cultura del Meta dando cumplimiento plan de Desarrollo Económico y Social Departamental “HAGAMOS GRANDE AL META” 2020 – 2023; y con el propósito de exaltar, promover,  fomentar el desarrollo de las expresiones de la cultura llanera, en sus potencialidades artísticas y capacidades creadoras, alrededor de las prácticas tradicionales y las nuevas propuestas del joropo ante el país y el mundo, presenta las bases para la convocatoria pública del CONCURSO 53° TORNEO INTERNACIONAL DEL JOROPO “MIGUEL ÁNGEL MARTÍN”.</h4>
+
+                </div>
+              <div class="col-lg-9 mx-auto text-black text-center">
+                        <h4>Descargar las Bases del 53° Torneo Internacional del Joropo  "MIGUEL ÁNGEL MARTÍN" -
+                        Enlace:</h4>
+                   <h4><a href="https://drive.google.com/file/d/15J5DmLSj4FhBEOOlZutvhe7w0sLs2BDX/view?usp=sharing">Bases</a></h4>
+
+                </div>
+
+              <div class="col-lg-9 mx-auto text-black text-center">
+                        <h4>Descargar Formulario N°1 - Inscripción al 53° Torneo Internacional del Joropo "MIGUEL ÁNGEL MARTÍN" - Enlace: </h4>
+                   <h4><a href=" https://drive.google.com/file/d/1QTdACOsa_4m1lVuHpY1ckJVw3qu8ScCX/view?usp=sharing"> Formulario </a></h4>
+
+                </div>
+            <div class="col-lg-12 mx-auto text-black text-left" >
+                        {% block container %}
+
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Correo electrónico:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.email}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Nombres y Apellidos:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.name}}
+
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Nombre de la agrupación (si aplica):</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.agrupacion}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Seudónimo (si aplica):</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.seudonimo}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Número de identificación:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.identification}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Lugar de Expedición:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.expedicion}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>País de residencia:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.country}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Ciudad de residencia:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.region}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Municipio:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.city}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Dirección residencia:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.adress}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Teléfono fijo:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.phone}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div><div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                            <h7>Teléfono celular:</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.phone_movil}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-justify" style="background-color: #DAEDFB;">
+                            <h7>Escriba el nombre de la obra N°1 y/o arreglo que presentará al concurso según lo solicitado en las bases: (No Aplica para las modalidades de, Pareja de Baile y Copleros):</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.obra1}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+
+
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-3 mx-auto text-black text-justify" style="background-color: #DAEDFB;">
+                            <h7>Escriba el nombre de la obra N°2 y/o arreglo que presentará al concurso según lo solicitado en las bases: (No Aplica para las modalidades de, Pareja de Baile y Copleros):</h7>
+                                 </div>
+                             <div class="col-lg-9 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.obra2}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-6 mx-auto text-black text-justify" style="background-color: #DAEDFB;">
+                            <h7>Seleccione una foto artística haciendo clic en agregar archivo - Por favor ADJUNTE una fotografía artística digital ya sea a color o blanco y negro tamaño mínimo 800 x 600 Pixeles en una resolución mínima de 200 dpi:</h7>
+                                 </div>
+                             <div class="col-lg-6 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.archivo}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-6 mx-auto text-black text-justify" style="background-color: #DAEDFB;">
+                            <h7>Cargar el Formulario N°1 - Inscripción al 53° Torneo Internacional del Joropo "MIGUEL ÁNGEL MARTÍN" totalmente diligenciado con los siguientes documentos: Fotocopias de la Cédula ciudadanía, extranjería y/o pasaporte del representante y de los integrantes según sea la modalidad y la certificación de residencia de mínimo 3 años emitida por la Alcaldía del municipio respectivo, o las juntas de acción comunal. (aplica solo para los participantes que se presenten por el departamento del Meta). Lo anterior se Adjunta en un solo archivo en formato PDF. *</h7>
+                                 </div>
+                             <div class="col-lg-6 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.archivo1}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-6 mx-auto text-black text-justify" style="background-color: #DAEDFB;">
+                            <h7>Adjuntar el audio formato punto wav, mp3 etc... y vídeo y/o videos (mínimo una cámara máximo tres cámaras grabando simultáneamente) FHD, 1080p o superior de la propuesta según sea la modalidad seleccionada: *</h7>
+                                 </div>
+                             <div class="col-lg-6 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.archivo2}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+
+
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+                             <div class="col-lg-6 mx-auto text-black text-justify" style="background-color: #DAEDFB;">
+                            <h7>Los participantes de las modalidades de Conjunto de Música Tradicional llanera y/o Ensambles Nuevos Formatos deberán enviar una breve, pero sólida justificación escrita de su obra, que incluya: Datos de la obra (forma y estilo), intención y/o concepto musical desarrollado y argumentar el ¿Porqué? del repertorio seleccionado. Esta podrá ser utilizada para presentar la obra ante el público por redes y medios de comunicación. Adjuntar el documento en un solo PDF. </h7>
+                                 </div>
+                             <div class="col-lg-6 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.archivo3}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+                  </div>
+
+                         <div class="col-lg-12 mx-auto text-black text-justify" style="background-color: #DAEDFB;">
+                             <div class="col-lg-6 mx-auto text-black text-justify" style="background-color: #DAEDFB;">
+                            <h7>Los participantes de las modalidades de Golpe Inédito, Pasaje Inédito, Poema Inédito, deberán enviar una (1) copia del texto de la obra, escrita en computador en letra Arial 12, marcada y firmada únicamente con el seudónimo del compositor. Adjuntar el documento en un solo PDF. </h7>
+                                 </div>
+                             <div class="col-lg-6 mx-auto text-black text-center" style="background-color: #DAEDFB;">
+
+                            {{ form.archivo4}}
+                                  </div>
+                  </div>
+                        <div class="col-lg-12 mx-auto text-primary text-center" style="background-color: #FFFFFF;">
+                        <h1></h1>
+
+
+
+
+                        <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #FFFFF;">
+                        <input class="btn btn-primary" type="submit" value="ENVIAR FORMULARIO">
+                            </div>
+                      </form>
+
+                        {% endblock %}
+                </div>
+            </div>
+        </div>
