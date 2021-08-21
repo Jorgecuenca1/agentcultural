@@ -94,14 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': str(BASE_DIR / 'db.sqlite3'),
     },
-    'pg': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'agentcultural_db',
-        'USER': 'agentcultural',
-        'PASSWORD': 'CultuR4M3t4',
-        'HOST': 'database1',
-        'PORT': '5434',
-    }
+
 }
 
 
