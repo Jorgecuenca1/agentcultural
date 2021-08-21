@@ -39,7 +39,7 @@ class PropuestaResource(resources.ModelResource):
 
 @admin.register(Torneo)
 class TorneoAdmin(ImportExportModelAdmin):
-    list_display = ('pk', 'email','name', 'agrupacion','seudonimo','type_document', 'identification','expedicion','country', 'region','city', 'adress','phone','phone_movil', 'modalidad','obra1', 'obra2','propuesta','archivo', 'archivo1','archivo2','archivo3', 'archivo4',)
+    list_display = ('pk', 'email','name', 'agrupacion','seudonimo','type_document', 'identification','expedicion','country', 'region','city', 'adress','phone','phone_movil', 'modalidad','obra1', 'obra2','propuesta','archivo', 'archivo1','link','archivo2','archivo3', 'archivo4',)
     list_display_links = ('pk',)
     list_editable = ('name',)
     search_fields = ('name',)

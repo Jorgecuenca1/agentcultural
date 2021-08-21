@@ -119,6 +119,13 @@ class TorneoForm(forms.ModelForm):
                                                          "rows": 2,
                                                          'cols': 80
                                                          }))
+    link = forms.CharField(label='Adjuntar el link del archivo de wetranfer donde envia el audio formato punto wav, mp3 etc... y vídeo y/o videos (mínimo una cámara máximo tres cámaras grabando simultáneamente) FHD, 1080p o superior de la propuesta según sea la modalidad seleccionada: *',
+                                  widget=forms.Textarea(attrs={"placeholder": "Adjuntar el link del archivo de wetranfer donde envia el audio formato punto wav, mp3 etc... y vídeo y/o videos (mínimo una cámara máximo tres cámaras grabando simultáneamente) FHD, 1080p o superior de la propuesta según sea la modalidad seleccionada: *",
+                                                               "class": "new-class-name two",
+                                                               "id": "my-id-for-textarea",
+                                                               "rows": 1,
+                                                               'cols': 80
+                                                               }))
     class Meta:
         model = Torneo
         fields = '__all__'
