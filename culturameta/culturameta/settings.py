@@ -88,13 +88,17 @@ WSGI_APPLICATION = 'culturameta.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': str(BASE_DIR / 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'agentcultural_db',
+        'USER': 'agentcultural',
+        'PASSWORD': 'CultuR4M3t4',
+        'HOST': 'database1',
+        'PORT': '5434',
     }
 }
+
 
 
 # Password validation
