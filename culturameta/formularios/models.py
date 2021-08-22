@@ -6,12 +6,11 @@ from django.core.exceptions import ValidationError
 from django_file_validator.validators import MaxSizeValidator
 
 def validate_file_size(value):
-    filesize = value.size
+    filesize = value.file.size
 
     if filesize > 2621440:
         raise ValidationError("The maximum file size that can be uploaded is 2,5MB")
-    else:
-        return value
+
 BOOLEAN_CHOICES = (
         ('SI', 'SI',),
         ('NO', 'NO',),
@@ -190,10 +189,10 @@ class Torneo(models.Model):
                                   on_delete=models.PROTECT,
                                   blank=True, null=True)
     archivo = models.FileField(verbose_name='Seleccione una foto artística haciendo clic en agregar archivo - Por favor ADJUNTE una fotografía artística digital ya sea a color o blanco y negro tamaño mínimo 800 x 600 Pixeles en una resolución mínima de 200 dpi.', upload_to='torneo/file', blank=True, null=True)
-    archivo1 = models.FileField(verbose_name='Cargar el Formulario N°1 - Inscripción al 53° Torneo Internacional del Joropo "MIGUEL ÁNGEL MARTÍN" totalmente diligenciado con los siguientes documentos: Fotocopias de la Cédula ciudadanía, extranjería y/o pasaporte del representante y de los integrantes según sea la modalidad y la certificación de residencia de mínimo 3 años emitida por la Alcaldía del municipio respectivo, o las juntas de acción comunal. (aplica solo para los participantes que se presenten por el departamento del Meta). Lo anterior se Adjunta en un solo archivo en formato PDF. *', upload_to='torneo/file', blank=True, null=True, validators=[MaxSizeValidator(2621440)])
-    link = models.CharField(max_length=100, blank=True, verbose_name='Adjuntar el link del archivo de wetranfer donde envia el audio formato punto wav, mp3 etc... y vídeo y/o videos (mínimo una cámara máximo tres cámaras grabando simultáneamente) FHD, 1080p o superior de la propuesta según sea la modalidad seleccionada: *', null=True, validators=[MaxSizeValidator(2621440)])
-    archivo2 = models.FileField(verbose_name='', upload_to='torneo/file', blank=True, null=True, validators=[MaxSizeValidator(2621440)])
-    archivo3 = models.FileField(verbose_name=' Los participantes de las modalidades de Conjunto de Música Tradicional llanera y/o Ensambles Nuevos Formatos deberán enviar una breve, pero sólida justificación escrita de su obra, que incluya: Datos de la obra (forma y estilo), intención y/o concepto musical desarrollado y argumentar el ¿Porqué? del repertorio seleccionado. Esta podrá ser utilizada para presentar la obra ante el público por redes y medios de comunicación. Adjuntar el documento en un solo PDF. ', upload_to='torneo/file', blank=True, null=True, validators=[MaxSizeValidator(2621440)])
+    archivo1 = models.FileField(verbose_name='Cargar el Formulario N°1 - Inscripción al 53° Torneo Internacional del Joropo "MIGUEL ÁNGEL MARTÍN" totalmente diligenciado con los siguientes documentos: Fotocopias de la Cédula ciudadanía, extranjería y/o pasaporte del representante y de los integrantes según sea la modalidad y la certificación de residencia de mínimo 3 años emitida por la Alcaldía del municipio respectivo, o las juntas de acción comunal. (aplica solo para los participantes que se presenten por el departamento del Meta). Lo anterior se Adjunta en un solo archivo en formato PDF. *', upload_to='torneo/file', blank=True, null=True, validators=[validate_file_size])
+    link = models.CharField(max_length=100, blank=True, verbose_name='Adjuntar el link del archivo de wetranfer donde envia el audio formato punto wav, mp3 etc... y vídeo y/o videos (mínimo una cámara máximo tres cámaras grabando simultáneamente) FHD, 1080p o superior de la propuesta según sea la modalidad seleccionada: *', null=True, validators=[validate_file_size])
+    archivo2 = models.FileField(verbose_name='sdsd', upload_to='torneo/file', blank=True, null=True, validators=[validate_file_size])
+    archivo3 = models.FileField(verbose_name=' Los participantes de las modalidades de Conjunto de Música Tradicional llanera y/o Ensambles Nuevos Formatos deberán enviar una breve, pero sólida justificación escrita de su obra, que incluya: Datos de la obra (forma y estilo), intención y/o concepto musical desarrollado y argumentar el ¿Porqué? del repertorio seleccionado. Esta podrá ser utilizada para presentar la obra ante el público por redes y medios de comunicación. Adjuntar el documento en un solo PDF. ', upload_to='torneo/file', blank=True, null=True, validators=[validate_file_size])
     archivo4 = models.FileField(verbose_name='Los participantes de las modalidades de Golpe Inédito, Pasaje Inédito, Poema Inédito, deberán enviar una (1) copia del texto de la obra, escrita en computador en letra Arial 12, marcada y firmada únicamente con el seudónimo del compositor. Adjuntar el documento en un solo PDF.  ', upload_to='torneo/file', blank=True, null=True, validators=[MaxSizeValidator(2621440)])
     created = models.DateTimeField(auto_now_add=True)
 
