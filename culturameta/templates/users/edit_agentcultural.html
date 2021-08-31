@@ -1,35 +1,571 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
 {% load static %}
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>Registro de información</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
-    <body>
-        <div class="page-header">
+  <head>
+    <title>TORNEO INTERNACIONAL DEL JOROPO</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, label, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 34px;
+      color: #fff;
+      z-index: 2;
+      line-height: 83px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 8px  #669999;
+      }
+      .banner {
+      position: relative;
+      height: 300px;
+      background-image: src: "{% static 'img/logo.png' %}"
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.2);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      input[type="date"] {
+      padding: 4px 5px;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:  #669999;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #669999;
+      color: #669999;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      .item span {
+      color: red;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color:  #a3c2c2;
+      }
+      .item i {
+      right: 1%;
+      top: 30px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 1%;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+      label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      .question-answer label {
+      display: block;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      input[type=radio]:checked + label:before, label.radio:hover:before {
+      border: 2px solid  #669999;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid  #669999;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .flax {
+      display:flex;
+      justify-content:space-around;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background:  #669999;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background:  #a3c2c2;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .name-item div {
+      width: calc(50% - 20px);
+      }
+      .name-item div input {
+      width:97%;}
+      .name-item div label {
+      display:block;
+      padding-bottom:5px;
+      }
+      }
+    </style>
+  </head>
+  <body>
+  {% block container %}
 
-            <h1><a href="/">Registre o edite sus datos</a></h1>
-        </div>
-        <div class="container">
-  <!-- For demo purpose -->
-          <div class="row py-5">
-            <div class="col-lg-9 mx-auto text-white text-center">
-                        {% block container %}
 
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        <table border="1">
-                        {{ form}}
-                        </table>
-                        </br>
-                        <input class="btn btn-primary" type="submit" value="Editar información">
-                      </form>
-
-                        {% endblock %}
-                </div>
+<div class="container">
+    <div class="col-lg-3 mx-auto">
             </div>
+        <div class="col-lg-2 mx-auto">
+                <img src="{% static 'img/logo.png' %}" width="200px"/>
+            </div>
+    <div class="col-lg-1 mx-auto">
+            </div>
+    <div class="col-lg-2 mx-auto">
+                <img src="{% static 'img/gober.png' %}" width="200px"/>
+            </div>
+    <div class="col-lg-3 mx-auto">
+            </div>
+
+
+    </div>
+
+    <div class="testbox">
+      <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+          <div class="banner">
+          <h3>Inscripciones al 53° Torneo Internacional del Joropo “Miguel Ángel Martín” - Homenaje al maestro Juan Farfán - 2021.</h3>
         </div>
-    </body>
+          <div class="col-lg-12 mx-auto text-black text-justify">
+                        <h4>El Instituto Departamental de Cultura del Meta dando cumplimiento plan de Desarrollo Económico y Social Departamental “HAGAMOS GRANDE AL META” 2020 – 2023; y con el propósito de exaltar, promover,  fomentar el desarrollo de las expresiones de la cultura llanera, en sus potencialidades artísticas y capacidades creadoras, alrededor de las prácticas tradicionales y las nuevas propuestas del joropo ante el país y el mundo, presenta las bases para la convocatoria pública del CONCURSO 53° TORNEO INTERNACIONAL DEL JOROPO “MIGUEL ÁNGEL MARTÍN”.</h4>
+
+                </div>
+
+              <div class="col-lg-12 mx-auto text-black text-center">
+                        <h4>Descargar las Bases del 53° Torneo Internacional del Joropo  "MIGUEL ÁNGEL MARTÍN" -
+                        Enlace:</h4>
+                   <h4><a href="https://drive.google.com/file/d/15J5DmLSj4FhBEOOlZutvhe7w0sLs2BDX/view?usp=sharing">Bases</a></h4>
+
+                </div>
+
+              <div class="col-lg-12 mx-auto text-black text-center">
+                        <h4>Descargar Formulario N°1 - Inscripción al 53° Torneo Internacional del Joropo "MIGUEL ÁNGEL MARTÍN" - Enlace: </h4>
+                   <h4><a href=" https://drive.google.com/file/d/1QTdACOsa_4m1lVuHpY1ckJVw3qu8ScCX/view?usp=sharing"> Formulario </a></h4>
+
+                </div>
+
+
+        <div class="item">
+          <label for="email">1.AGENTE O GESTOR CULTURAL<span>*</span></label>
+          {{ form.tipo}}
+        </div>
+        <div class="item">
+          <label for="attendees">Imagen del agente: <span>*</span></label>
+          {{ form.image}}
+        </div>
+        <div class="item">
+          <label for="position">1.1. NOMBRES:<span>*</span></label>
+         {{ form.name}}
+        </div>
+        <div class="item">
+          <label for="department">1.2. APELLIDOS:<span>*</span></label>
+          {{ form.last_name}}
+        </div>
+        <div class="item">
+          <label for="phone">1.3. NOMBRE ARTÍSTICO:<span>*</span></label>
+          {{form.artistic_name}}
+        </div>
+          <div class="item">
+          <label for="phone">1.4. GÉNERO:<span>*</span></label>
+          {{ form.gender}}
+        </div>
+          <div class="item">
+          <label for="phone">1.5. FECHA DE NACIMIENTO:<span>*</span></label>
+          {{ form.birthday}}
+        </div>
+          <div class="item">
+          <label for="phone">1.6. LUGAR DE NACIMIENTO:<span>*</span></label>
+          {{ form.lugar_nacimiento}}
+        </div>
+          <div class="item">
+          <label for="phone">1.7. TIPO DOCUMENTO IDENTIDAD:<span>*</span></label>
+          {{ form.type_document}}
+        </div>
+
+
+          <div class="item">
+          <label for="phone">1.8. NÚMERO DE DOCUMENTO:<span>*</span></label>
+          {{ form.identification}}
+        </div>
+
+             <div class="item">
+          <label for="phone">1.9. LUGAR DE EXPEDICIÓN:<span>*</span></label>
+          {{ form.lugar_expedicion}}
+          </div>
+            <div class="item">
+          <label for="phone">1.10. TARJETA PROFESIONAL:<span>*</span></label>
+          {{ form.tarjeta_profesional}}
+          </div>
+          <div class="item">
+          <label for="phone">1.11. FECHA DE EXPEDICIÓN:<span>*</span></label>
+          {{ form.expedicion_tarjeta}}
+        </div>
+            <div class="item">
+          <label for="phone">1.12. PASAPORTE:<span>*</span></label>
+          {{ form.passport}}
+        </div>
+
+          <div class="item">
+          <label for="phone">1.13. FECHA DE EXPEDICIÓN:<span>*</span></label>
+          {{ form.expedicion_passport}}
+        </div>
+          <div class="item">
+          <label for="phone">1.14. FECHA DE VENCIMIENTO:<span>*</span></label>
+          {{ form.vencimiento_passport}}
+        </div>
+          <div class="item">
+          <label for="phone">1.15. ¿POSEE ALGUNA DISCAPACIDAD FÍSICA?:<span>*</span></label>
+          {{ form.posee_discapacidad}}
+        </div>
+
+
+          <div class="item">
+          <label for="phone">1.16. ¿CUÁL ?:<span>*</span></label>
+          {{ form.disability}}
+        </div>
+
+             <div class="item">
+          <label for="phone">1.17. ¿PERTENECE A UNA MINORÍA ÉTNICA?:<span>*</span></label>
+          {{ form.posee_etnico}}
+          </div>
+            <div class="item">
+          <label for="phone">1.18. ¿CUÁL?:<span>*</span></label>
+          {{ form.etnico}}
+          </div>
+          <div class="item">
+          <label for="phone">1.19. ¿ES VÍCTIMA?:<span>*</span></label>
+          {{ form.esvictima}}
+        </div>
+            <div class="item">
+          <label for="phone">1.20. ¿HECHO VICTIMIZANTE?:<span>*</span></label>
+          {{ form.victima}}
+        </div>
+
+
+          <div class="item">
+          <label for="phone">2.1. MUNICIPIO:<span>*</span></label>
+          {{ form.city}}
+          </div>
+          <div class="item">
+          <label for="phone">2.2. ÁREA:<span>*</span></label>
+          {{ form.zona}}
+        </div>
+            <div class="item">
+          <label for="phone">2.3. DIRECCIÓN DE VIVIENDA:<span>*</span></label>
+          {{ form.adress}}
+        </div>
+          <div class="item">
+          <label for="phone">2.4. DIRECCIÓN DE CORRESPONDENCIA:<span>*</span></label>
+          {{ form.adress2}}
+          </div>
+          <div class="item">
+          <label for="phone">2.5. TELÉFONO:<span>*</span></label>
+          {{ form.phone}}
+        </div>
+            <div class="item">
+          <label for="phone">2.6. CELULAR:<span>*</span></label>
+          {{ form.phone_movil}}
+        </div>
+
+          <div class="item">
+          <label for="phone">2.7. E-MAIL:<span>*</span></label>
+          {{ form.email}}
+        </div>
+            <div class="item">
+          <label for="phone">2.8. PÁGINA WEB:<span>*</span></label>
+          {{ form.web}}
+        </div>
+          <div class="item">
+          <label for="phone">3.1. ¿ACTUALMENTE DESARROLLA ALGUNA PRÁCTICA ARTÍSTICA?:<span>*</span></label>
+          {{ form.desarrollo_practica}}
+          </div>
+          <div class="item">
+          <label for="phone">3.2. DESARROLLA LA PRÁCTICA ARTÍSTICA DE FORMA:<span>*</span></label>
+          {{ form.forma_practica}}
+        </div>
+            <div class="item">
+          <label for="phone">3.3. ÁREA ARTÍSTICA QUE PRACTICA:<span>*</span></label>
+          {{ form.area2}}
+        </div>
+          <div class="item">
+          <label for="phone">3.4. PRÁCTICA ARTÍSTICA:<span>*</span></label>
+          {{ form.practica}}
+          </div>
+          <div class="item">
+          <label for="phone">3.4.1. ¿CUÁL?:<span>*</span></label>
+          {{ form.cual_practica}}
+        </div>
+            <div class="item">
+          <label for="phone">3.5. ¿PERTENECE A UNA ORGANIZACIÓN ARTÍSTICA O CULTURAL?:<span>*</span></label>
+          {{ form.pertenece_entidad}}
+        </div>
+          <div class="item">
+          <label for="phone">3.6. ¿DESDE QUÉ AÑO ESTÁ VINCULADO A LA ORGANIZACIÓN ARTÍSTICA O CULTURAL?:<span>*</span></label>
+          {{ form.vinculacion_entidad}}
+          </div>
+          <div class="item">
+          <label for="phone">3.7. NOMBRE DE LA ORGANIZACIÓN ARTÍSTICA O CULTURAL:<span>*</span></label>
+          {{ form.name_entity}}
+        </div>
+            <div class="item">
+          <label for="phone">3.8. ¿QUÉ TIPO DE FORMACIÓN HA RECIBIDO?::<span>*</span></label>
+          {{ form.tipo_formacion}}
+        </div>
+
+
+          <div class="item">
+          <label for="phone">3.9. NIVEL DE EDUCACIÓN:<span>*</span></label>
+          {{ form.nivel_educacion}}
+        </div>
+            <div class="item">
+          <label for="phone">3.10.TÍTULO RECIBIDO:<span>*</span></label>
+          {{ form.titulo}}
+        </div>
+          <div class="item">
+          <label for="phone">3.11. AÑO:<span>*</span></label>
+          {{ form.ano_titulo}}
+          </div>
+          <div class="item">
+          <label for="phone">3.12. NOMBRE DE ENTIDAD EDUCATIVA:<span>*</span></label>
+          {{ form.entidad_educativa}}
+        </div>
+            <div class="item">
+          <label for="phone">3.13. RESEÑA TRAYECTORIA ARTÍSTICA:<span>*</span></label>
+          {{ form.reseña_trayectoria}}
+        </div>
+
+          <div class="item">
+          <label for="phone">4.1. LA VIVIENDA QUE HABITA ES:<span>*</span></label>
+          {{ form.tipo_vivienda}}
+        </div>
+            <div class="item">
+          <label for="phone">4.2. ESTRATO DE LA VIVIENDA:<span>*</span></label>
+          {{ form.housing_stratum}}
+        </div>
+          <div class="item">
+          <label for="phone">4.3. ¿TIPO DE VINCULACIÓN EN LA ACTIVIDAD ARTÍSTICA Y CULTURAL?:<span>*</span></label>
+          {{ form.tipo_vinculacion}}
+          </div>
+          <div class="item">
+          <label for="phone">4.3.1. ¿CUÁL TIPO DE VINCULACIÓN?:<span>*</span></label>
+          {{ form.cual_vinculacion}}
+        </div>
+            <div class="item">
+          <label for="phone">4.4. ¿DESARROLLA OTRA ACTIVIDAD PRODUCTIVA DIFERENTE A LA ARTÍSTICA Y CULTURAL?<span>*</span></label>
+          {{ form.otra_actividad}}
+        </div>
+
+
+          <div class="item">
+          <label for="phone">4.5. FUENTES DE INGRESO:<span>*</span></label>
+          {{ form.fuente_ingreso}}
+        </div>
+
+
+          <div class="item">
+          <label for="phone">4.6. ¿QUÉ PORCENTAJE DE SUS INGREOS PROVIENEN DE LA ACTIVIDAD ARTÍSTICA Y CULTURAL?:<span>*</span></label>
+          {{ form.porcentaje}}
+          </div>
+          <div class="item">
+          <label for="phone">4.7. SE ENCUENTRA ACTUALMENTE AFILIADO AL RÉGIMEN DE SEGURIDAD SOCIAL EN SALUD?:<span>*</span></label>
+          {{ form.regimen_salud}}
+        </div>
+            <div class="item">
+          <label for="phone">4.8.  A QUE RÉGMIEN DE SALUD:<span>*</span></label>
+          {{ form.health_regimen}}
+        </div>
+          <div class="item">
+          <label for="phone">4.9. ¿SE ENCUENTRA ACTUALMENTE AFILIADO AL RÉGIMEN DE SEGURIDAD SOCIAL EN PENSIONES?:<span>*</span></label>
+          {{ form.regimen_pension}}
+          </div>
+          <div class="item">
+          <label for="phone">4.10. A QUE RÉGIMEN DE PENSIÓN:<span>*</span></label>
+          {{ form.pension_regimen}}
+        </div>
+            <div class="item">
+          <label for="phone">4.11. ¿SE ENCUENTRA ACTUALMENTE AFILIADO AL RÉGIMEN DE RIESGOS PROFESIONALES?:<span>*</span></label>
+          {{ form.regimen_arl}}
+        </div>
+          <div class="item">
+          <label for="phone">4.12.VIGIA PATRIMONIO:<span>*</span></label>
+          {{ form.vigia_patrimonio}}
+        </div>
+            <div class="item">
+          <label for="phone">4.13.PORTADOR DE MANIFESTACIÓN PATRIMONIO:<span>*</span></label>
+          {{ form.portador_manifestacion}}
+        </div>
+          <div class="item">
+          <label for="phone">MANIFESTACIÓN:<span>*</span></label>
+          {{ form.manifestation}}
+          </div>
+          <div class="item">
+          <label for="phone">Servicios que ofreces:<span>*</span></label>
+          {{ form.servicios}}
+        </div>
+            <div class="item">
+          <label for="phone">Facebook:<span>*</span></label>
+          {{ form.facebook}}
+        </div>
+          <div class="item">
+          <label for="phone">Instagram:<span>*</span></label>
+          {{ form.instagram}}
+          </div>
+
+           <div class="item text-justify">
+          <label for="phone">SISBEN <span>*</span></label>
+          {{ form.sisben}}
+        </div>
+           <div class="item">
+          <label for="phone">BEPS:<span>*</span></label>
+          {{ form.beps}}
+        </div>
+          <div class="item">
+          <label for="phone">terminosycondiciones:<span>*</span></label>
+          {{ form.terminosycondiciones}}
+          </div>
+
+          <div class="col-lg-12 mx-auto text-black text-center" style="background-color: #FFFFF;">
+                        <input class="btn btn-primary" type="submit" value="GUARDAR FORMULARIO">
+                            </div>
+
+      </form>
+    </div>
+  </body>
+ {% endblock %}
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

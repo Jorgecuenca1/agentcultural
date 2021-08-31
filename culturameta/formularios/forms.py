@@ -7,13 +7,81 @@ class CustomClearableFileInput(ClearableFileInput):
     template_with_clear = '<br>  <label for="%(clear_checkbox_id)s">%(clear_checkbox_label)s</label> %(clear)s'
 
 class PqrsdForm(forms.ModelForm):
+    name = forms.CharField(label='Nombre del remitente',
+                           widget=forms.Textarea(attrs={"placeholder": "Nombre del remitente",
+                                                        "class": "new-class-name two",
+                                                        "id": "my-id-for-textarea",
+                                                        "rows": 1,
+                                                        'cols': 80
+                                                        }))
+    last_name = forms.CharField(label='Apellidos del remitente',
+                           widget=forms.Textarea(attrs={"placeholder": "Apellidos del remitente",
+                                                        "class": "new-class-name two",
+                                                        "id": "my-id-for-textarea",
+                                                        "rows": 1,
+                                                        'cols': 80
+                                                        }))
+    city = forms.CharField(label='Municipio',
+                                     widget=forms.Textarea(attrs={"placeholder": "Municipio",
+                                                                  "class": "new-class-name two",
+                                                                  "id": "my-id-for-textarea",
+                                                                  "rows": 1,
+                                                                  'cols': 80
+                                                                  }))
+    identification = forms.CharField(label='Identificación',
+                                widget=forms.Textarea(attrs={"placeholder": "Identificación",
+                                                             "class": "new-class-name two",
+                                                             "id": "my-id-for-textarea",
+                                                             "rows": 1,
+                                                             'cols': 80
+                                                             }))
+    email = forms.EmailField(label='Correo electrónico',
+                             widget=forms.Textarea(attrs={"placeholder": "Correo Electrónico",
+                                                          "class": "new-class-name two",
+                                                          "id": "my-id-for-textarea",
+                                                          "rows": 1,
+                                                          'cols': 80
+                                                          }))
+    phone = forms.CharField(label='Celular',
+                                     widget=forms.Textarea(attrs={"placeholder": "Celular",
+                                                                  "class": "new-class-name two",
+                                                                  "id": "my-id-for-textarea",
+                                                                  "rows": 1,
+                                                                  'cols': 80
+                                                                  }))
+    asunto = forms.CharField(label='Asunto',
+                            widget=forms.Textarea(attrs={"placeholder": "Asunto",
+                                                         "class": "new-class-name two",
+                                                         "id": "my-id-for-textarea",
+                                                         "rows": 1,
+                                                         'cols': 80
+                                                         }))
+    solicitud = forms.CharField(label='Solicitud',
+                             widget=forms.Textarea(attrs={"placeholder": "Solicitud",
+                                                          "class": "new-class-name two",
+                                                          "id": "my-id-for-textarea",
+                                                          "rows": 4,
+                                                          'cols': 80
+                                                          }))
+
     class Meta:
         model = Pqrsd
         fields = '__all__'
         exclude = ('user',)
+        widgets = {
+            'archivo': CustomClearableFileInput
+        }
 
 
 class EncuestaTransparenciaForm(forms.ModelForm):
+    sugerencia= forms.CharField(label='Sugerencia',
+                                 widget=forms.Textarea(attrs={"placeholder": "Sugerencia",
+                                                              "class": "new-class-name two",
+                                                              "id": "my-id-for-textarea",
+                                                              "rows": 4,
+                                                              'cols': 80
+                                                              }))
+
     class Meta:
         model = EncuestaTransparencia
         fields = '__all__'

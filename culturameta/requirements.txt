@@ -21,7 +21,7 @@ django-file-validator
 Pillow==7.0.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-
+extras
 PyYAML==5.3.1
 service-identity==18.1.0
 six==1.15.0

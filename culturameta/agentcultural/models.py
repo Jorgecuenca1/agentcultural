@@ -538,7 +538,7 @@ class AgentCultural(models.Model):
     phone = models.CharField(max_length=30, blank=True, verbose_name='2.5. TELÉFONO', null=True)
     phone_movil = models.CharField(max_length=30, blank=True, verbose_name='2.6. CELULAR ', null=True)
     email = models.EmailField(max_length=30, blank=True, verbose_name='2.7. E-MAIL', null=True)
-    web = models.EmailField(max_length=30, blank=True, verbose_name='2.8. PÁGINA WEB', null=True)
+    web = models.CharField(max_length=50, blank=True, verbose_name='2.8. PÁGINA WEB', null=True)
     desarrollo_practica= models.CharField(max_length=2, choices=BOOLEAN_CHOICES, verbose_name='3.1. ¿ACTUALMENTE DESARROLLA ALGUNA PRÁCTICA ARTÍSTICA?', null=True,
                             blank=True)
     forma_practica = models.CharField(max_length=50, choices=FORMAPRACTICA_CHOICES,
