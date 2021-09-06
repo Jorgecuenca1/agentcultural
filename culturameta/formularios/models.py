@@ -4,6 +4,8 @@ from django.db import models
 
 from django_file_validator.validators import MaxSizeValidator
 from django.core.exceptions import ValidationError
+from multiselectfield import MultiSelectField
+
 
 def file_size(value): # add this to some file where you can import it from
     limit = 2 * 1024 * 1024
@@ -15,6 +17,37 @@ BOOLEAN_CHOICES = (
         ('NO', 'NO',),
 
     )
+LINEAS_CHOICES = (
+        ('Formación', 'Formación'),
+        ('Investigación e información', 'Investigación e información'),
+        ('Creación y Producción', 'Creación y Producción'),
+        ('Circulación y produccin', 'Circulación y produccin'),
+        ('Circulación y apropiación', 'Circulación y apropiación'),
+        ('Emprendimiento y asociatividad', 'Emprendimiento y asociatividad'),
+
+    )
+AREA_CHOICES = (
+        ('MÚSICA', 'MÚSICA'),
+        ('DANZA', 'DANZA'),
+        ('TEATRO', 'TEATRO'),
+        ('CIRCO', 'CIRCO'),
+        ('ARTES PLÁSTICAS Y VISUALES', 'ARTES PLÁSTICAS Y VISUALES'),
+        ('CINEMATOGRAFÍA', 'CINEMATOGRAFÍA'),
+        ('GASTRONIMÍA', 'GASTRONOMÍA'),
+        ('LITERATURA', 'LITERATURA'),
+        ('PATRIMONIO', 'PATRIMONIO'),
+        ('RED DE BIBLIOTECAS PÚBLICAS DEL META', 'RED DE BIBLIOTECAS PÚBLICAS DEL META'),
+
+    )
+class Perfil(models.Model):
+    name = models.CharField(verbose_name='Perfil', max_length=254)
+
+    class Meta:
+        verbose_name = 'Perfil'
+        verbose_name_plural = 'Perfil'
+
+    def __str__(self):
+        return self.name
 class Country(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(verbose_name='Nombre del país', max_length=254)
@@ -202,3 +235,91 @@ class Torneo(models.Model):
     class Meta:
         verbose_name = 'Torneo del joropo'
         verbose_name_plural = 'Torneo del joropo'
+
+class Programa(models.Model):
+    name = models.CharField(verbose_name='Nombre de Programa', max_length=254)
+
+    class Meta:
+        verbose_name = 'Programa'
+        verbose_name_plural = 'Programa'
+
+    def __str__(self):
+        return self.name
+class Componente(models.Model):
+    name = models.CharField(verbose_name='Nombre del COmponente', max_length=254)
+
+    programa = models.ForeignKey(Programa, on_delete=models.PROTECT, verbose_name='Programa')
+
+    class Meta:
+        verbose_name = 'COmponente'
+        verbose_name_plural = 'Componente'
+
+    def __str__(self):
+        return '{} | {}'.format(self.programa.name, self.name)
+
+class Meta(models.Model):
+
+    name = models.CharField(verbose_name='Meta', max_length=254)
+    componente = models.ForeignKey(Region, on_delete=models.PROTECT, verbose_name='Departamento')
+
+    class Meta:
+        verbose_name = 'Meta'
+        verbose_name_plural = 'Metas'
+
+    def __str__(self):
+        return '{} | {} | {}'.format(self.componente.programa.name, self.componente.name, self.name)
+
+    def save(self, *args, **kwargs):
+        super(City, self).save(*args, **kwargs)
+
+class Presupuesto(models.Model):
+    name = models.CharField(max_length=100, blank=True, verbose_name='Nombres y Aepllidos : *', null=True)
+    email = models.EmailField(max_length=20, blank=True, verbose_name='Correo *', null=True)
+    phone = models.CharField(max_length=100, blank=True, verbose_name='Teléfono fijo:', null=True)
+    city = models.CharField(max_length=100, blank=True, verbose_name='Municipio', null=True)
+    perfil = models.ForeignKey(Perfil, verbose_name='Perfil: *',
+                               on_delete=models.PROTECT,
+                               blank=True, null=True)
+    entity = models.CharField(max_length=100, blank=True, verbose_name='Nombre de la entidad *', null=True)
+
+    iniciativa = models.TextField( blank=True, verbose_name='Iniciativa', null=True)
+    planteamiento = models.TextField(blank=True, verbose_name='2. Planteamiento del Problema:', null=True)
+    objetivo_general = models.TextField(blank=True, verbose_name='3.1. Objetivo General', null=True)
+    objetivo_especifico = models.TextField(blank=True, verbose_name='3.2 Objetivos Específicos:', null=True)
+    descripcion = models.TextField(blank=True, verbose_name='4. Breve Descripción de la iniciativa:', null=True)
+    beneficiarios = models.TextField(blank=True, verbose_name='5. Beneficiarios:', null=True)
+    poblacion = models.TextField(blank=True, verbose_name='5.1. Cantidad Poblacion objetivo:', null=True)
+    poblacion_objetivo = models.TextField(blank=True, verbose_name='5.2. Caracterización Población objetivo (Urbana, rural, con enfoque diferencial, ciclo vida:', null=True)
+    valor_estimado = models.TextField(blank=True, verbose_name='6. Valor estimado de la Iniciativa', null=True)
+    descripcion_presupuesto = models.TextField(blank=True, verbose_name='6.1. Breve descripcioón del presupuesto estimado por actividades:', null=True)
+    ejecucion = models.TextField(blank=True, verbose_name='7. Tiempo de Ejecución en meses:', null=True)
+    lineas = MultiSelectField(max_length=82, choices=LINEAS_CHOICES,
+                                       verbose_name='8. Líneas Estratégicas: ',
+                                       null=True,
+                                       blank=True)
+    area = MultiSelectField(max_length=82, choices=LINEAS_CHOICES,
+                              verbose_name='9. Área (s) Artísticas + Patrimonio + Red de bibliotecas: ',
+                              null=True,
+                              blank=True)
+    meta1 = models.ForeignKey(Meta, related_name='meta1',verbose_name='Meta: *',
+                               on_delete=models.PROTECT,
+                               blank=True, null=True)
+    meta2 = models.ForeignKey(Meta,  related_name='meta2',verbose_name='Meta: *',
+                              on_delete=models.PROTECT,
+                              blank=True, null=True)
+    meta3 = models.ForeignKey(Meta, related_name='meta3', verbose_name='Meta: *',
+                              on_delete=models.PROTECT,
+                              blank=True, null=True)
+    meta4 = models.ForeignKey(Meta, related_name='meta4', verbose_name='Meta: *',
+                              on_delete=models.PROTECT,
+                              blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Formulario Hagamos Grande el Meta'
+        verbose_name_plural = 'Formulario Hagamos grande el Meta'

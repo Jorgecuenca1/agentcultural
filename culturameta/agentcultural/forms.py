@@ -1,7 +1,7 @@
 from django import forms
-from django.forms import ModelForm, ClearableFileInput, SelectDateWidget
+from django.forms import ModelForm, ClearableFileInput, SelectDateWidget, CheckboxSelectMultiple
 from django.forms.fields import DateField
-from .models import AgentCultural, Area, Entidad
+from .models import AgentCultural, Area, Entidad, AGENTEAREA_CHOICES
 from django.contrib.admin.widgets import AdminDateWidget
 
 class XYZ_DateInput(forms.DateInput):
@@ -116,13 +116,7 @@ class AgentCulturalForm(forms.ModelForm):
                                                           "rows": 1,
                                                           'cols': 80
                                                           }))
-    cual_practica = forms.CharField(label='3.4. ¿CUÁL?',
-                                  widget=forms.Textarea(attrs={"placeholder": "3.4. ¿CUÁL?",
-                                                               "class": "new-class-name two",
-                                                               "id": "my-id-for-textarea",
-                                                               "rows": 1,
-                                                               'cols': 80
-                                                               }))
+
     web = forms.CharField(label='2.8. PÁGINA WEB',
                           widget=forms.Textarea(attrs={"placeholder": "2.8. PÁGINA WEB ",
                                                        "class": "new-class-name two",
@@ -195,6 +189,12 @@ class AgentCulturalForm(forms.ModelForm):
                    "rows": 1,
                    'cols': 80
                    }))
+    practica = forms.MultipleChoiceField(
+        required=False,
+        label='Occupation',
+        widget=CheckboxSelectMultiple(),
+        choices=AGENTEAREA_CHOICES
+    )
 
     instagram = forms.CharField(
         label='Instagram',
@@ -219,10 +219,7 @@ class AgentCulturalForm(forms.ModelForm):
         }
 
         date = forms.DateInput()
-        areas = forms.ModelMultipleChoiceField(
-        queryset=Area.objects.all(),
-        widget=forms.CheckboxSelectMultiple
-    )
+
 
 class EntidadForm(forms.ModelForm):
     class Meta:

@@ -34,6 +34,7 @@ urlpatterns = [
     path('users/logout/', agentcultural_views.logout_view, name='logout'),
     path('users/agenteoentidad/',agentcultural_views.agenteoentidad, name='agenteoentidad'),
     path('users/torneo/',formularios_views.torneo, name='torneo'),
+    path('users/presupuesto/',formularios_views.presupuesto, name='presupuesto'),
     path('users/agentcultural/<int:id>/edit', agentcultural_views.edit_agentcultural, name='edit_agentcultural'),
     path('users/entidad/<int:id>/edit', agentcultural_views.edit_entidad, name='edit_entidad'),
     path('export/', agentcultural_views.export_pdf, name="export-pdf" ),
