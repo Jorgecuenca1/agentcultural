@@ -260,6 +260,7 @@ class Componente(models.Model):
 class Meta(models.Model):
 
     name = models.CharField(verbose_name='Meta', max_length=254)
+    codigo = models.CharField(verbose_name='codigo', max_length=254)
     componente = models.ForeignKey(Region, on_delete=models.PROTECT, verbose_name='Departamento')
 
     class Meta:
@@ -267,7 +268,7 @@ class Meta(models.Model):
         verbose_name_plural = 'Metas'
 
     def __str__(self):
-        return '{} | {} | {}'.format(self.componente.programa.name, self.componente.name, self.name)
+        return '{} | {} | {} | {}'.format(self.componente.programa.name, self.componente.name, self.name, self.codigo)
 
     def save(self, *args, **kwargs):
         super(City, self).save(*args, **kwargs)
