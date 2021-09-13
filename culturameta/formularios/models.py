@@ -298,7 +298,7 @@ class Presupuesto(models.Model):
                                        verbose_name='8. Líneas Estratégicas: ',
                                        null=True,
                                        blank=True)
-    area = MultiSelectField(max_length=82, choices=LINEAS_CHOICES,
+    area = MultiSelectField(max_length=82, choices=AREA_CHOICES,
                               verbose_name='9. Área (s) Artísticas + Patrimonio + Red de bibliotecas: ',
                               null=True,
                               blank=True)
