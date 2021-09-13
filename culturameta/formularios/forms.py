@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm, ClearableFileInput
 from .models import Pqrsd, EncuestaTransparencia, Torneo, Presupuesto
-
+from .models import Tiposolicitud, Nivel, Meta
 
 class CustomClearableFileInput(ClearableFileInput):
     template_with_clear = '<br>  <label for="%(clear_checkbox_id)s">%(clear_checkbox_label)s</label> %(clear)s'
@@ -319,13 +319,7 @@ class PresupuestoForm(forms.ModelForm):
                                                                            "rows": 1,
                                                                            'cols': 80
                                                                            }))
-    ejecucion = forms.CharField(label='Municipio',
-                                widget=forms.Textarea(attrs={"placeholder": "Municipio",
-                                                             "class": "new-class-name two",
-                                                             "id": "my-id-for-textarea",
-                                                             "rows": 1,
-                                                             'cols': 80
-                                                             }))
+    meta1 = forms.ModelChoiceField(queryset=Meta.objects.all())
 
     class Meta:
         model = Presupuesto
