@@ -1,7 +1,9 @@
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Tiposolicitud, Nivel, TypeDocument, Pqrsd, EncuestaTransparencia, Modalidad, Propuesta, Torneo
+from .models import Tiposolicitud, Nivel, Meta, TypeDocument, Pqrsd, EncuestaTransparencia, Modalidad, Propuesta, \
+    Torneo, \
+    Perfil, Programa, Componente, Presupuesto
 from django.contrib import admin
 from django.contrib.auth.models import User
 
@@ -98,3 +100,64 @@ class EncuestaTransparenciaAdmin(ImportExportModelAdmin):
 class EncuestaTransparenciaResource(resources.ModelResource):
     class Meta:
         model = EncuestaTransparencia
+
+@admin.register(Perfil)
+class PerfilAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    list_filter = ('name',)
+
+
+class PerfilResource(resources.ModelResource):
+    class Meta:
+        model = Perfil
+@admin.register(Programa)
+class ProgramaAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    list_filter = ('name',)
+
+
+class ProgramaResource(resources.ModelResource):
+    class Meta:
+        model = Programa
+
+@admin.register(Componente)
+class ComponenteAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    list_filter = ('name',)
+
+
+class ComponenteResource(resources.ModelResource):
+    class Meta:
+        model = Componente
+
+
+@admin.register(Meta)
+class MetaAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    list_filter = ('name',)
+
+
+class MetaResource(resources.ModelResource):
+    class Meta:
+        model = Meta
+
+
+@admin.register(Presupuesto)
+class PresupuestoAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name','email','phone','descripcion',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    list_filter = ('name',)
+
+
+class PresupuestoResource(resources.ModelResource):
+    class Meta:
+        model = Presupuesto
