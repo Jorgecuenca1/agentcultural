@@ -261,17 +261,17 @@ class Meta(models.Model):
 
     name = models.CharField(verbose_name='Meta', max_length=254)
     codigo = models.CharField(verbose_name='codigo', max_length=254)
-    componente = models.ForeignKey(Region, on_delete=models.PROTECT, verbose_name='Departamento')
+    componente = models.ForeignKey(Componente, on_delete=models.PROTECT, verbose_name='COmponente')
 
     class Meta:
         verbose_name = 'Meta'
         verbose_name_plural = 'Metas'
 
     def __str__(self):
-        return '{} | {} | {} | {}'.format(self.componente.programa.name, self.componente.name, self.name, self.codigo)
+        return '{} | {} | {} | {}'.format(self.componente.programa.name, self.componente.name, self.codigo,self.name)
 
     def save(self, *args, **kwargs):
-        super(City, self).save(*args, **kwargs)
+        super(Meta, self).save(*args, **kwargs)
 
 class Presupuesto(models.Model):
     name = models.CharField(max_length=100, blank=True, verbose_name='Nombres y Aepllidos : *', null=True)
