@@ -3,7 +3,7 @@ from import_export.admin import ImportExportModelAdmin
 
 from .models import Tiposolicitud, Nivel, Meta, TypeDocument, Pqrsd, EncuestaTransparencia, Modalidad, Propuesta, \
     Torneo, \
-    Perfil, Programa, Componente, Presupuesto
+    Perfil, Programa, Componente, Presupuesto, Region
 from django.contrib import admin
 from django.contrib.auth.models import User
 
@@ -112,6 +112,17 @@ class PerfilAdmin(ImportExportModelAdmin):
 class PerfilResource(resources.ModelResource):
     class Meta:
         model = Perfil
+@admin.register(Region)
+class RegionAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    list_filter = ('name',)
+
+
+class RegionResource(resources.ModelResource):
+    class Meta:
+        model = Region
 @admin.register(Programa)
 class ProgramaAdmin(ImportExportModelAdmin):
     list_display = ('pk', 'name',)
