@@ -220,6 +220,67 @@ class AgentCulturalForm(forms.ModelForm):
 
         date = forms.DateInput()
 
+    def __init__(self, *args, **kwargs):
+        super(AgentCulturalForm, self).__init__(*args, **kwargs)
+        self.fields['artistic_name'].required = False
+        self.fields['gender'].required = False
+        self.fields['birthday'].required = False
+        self.fields['lugar_nacimiento'].required = False
+        self.fields['type_document'].required = False
+        self.fields['lugar_expedicion'].required = False
+        self.fields['tarjeta_profesional'].required = False
+        self.fields['expedicion_tarjeta'].required = False
+        self.fields['passport'].required = False
+        self.fields['expedicion_passport'].required = False
+        self.fields['vencimiento_passport'].required = False
+        self.fields['posee_discapacidad'].required = False
+        self.fields['disability'].required = False
+        self.fields['posee_etnico'].required = False
+        self.fields['etnico'].required = False
+        self.fields['esvictima'].required = False
+        self.fields['victima'].required = False
+        self.fields['city'].required = False
+        self.fields['zona'].required = False
+        self.fields['adress'].required = False
+        self.fields['adress2'].required = False
+        self.fields['phone'].required = False
+        self.fields['phone_movil'].required = False
+        self.fields['email'].required = False
+        self.fields['web'].required = False
+        self.fields['desarrollo_practica'].required = False
+        self.fields['forma_practica'].required = False
+        self.fields['area2'].required = False
+        self.fields['practica'].required = False
+        self.fields['cual_practica'].required = False
+        self.fields['pertenece_entidad'].required = False
+        self.fields['vinculacion_entidad'].required = False
+        self.fields['name_entity'].required = False
+        self.fields['tipo_formacion'].required = False
+        self.fields['nivel_educacion'].required = False
+        self.fields['titulo'].required = False
+        self.fields['ano_titulo'].required = False
+        self.fields['entidad_educativa'].required = False
+        self.fields['reseña_trayectoria'].required = False
+        self.fields['tipo_vivienda'].required = False
+        self.fields['housing_stratum'].required = False
+        self.fields['tipo_vinculacion'].required = False
+        self.fields['cual_vinculacion'].required = False
+        self.fields['otra_actividad'].required = False
+        self.fields['fuente_ingreso'].required = False
+        self.fields['regimen_salud'].required = False
+        self.fields['health_regimen'].required = False
+        self.fields['regimen_pension'].required = False
+        self.fields['pension_regimen'].required = False
+        self.fields['regimen_arl'].required = False
+        self.fields['vigia_patrimonio'].required = False
+        self.fields['portador_manifestacion'].required = False
+        self.fields['manifestation'].required = False
+        self.fields['servicios'].required = False
+        self.fields['facebook'].required = False
+        self.fields['instagram'].required = False
+        self.fields['sisben'].required = False
+        self.fields['beps'].required = False
+        self.fields['terminosycondiciones'].required = False
 
 class EntidadForm(forms.ModelForm):
     class Meta:

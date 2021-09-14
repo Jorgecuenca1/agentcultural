@@ -497,11 +497,11 @@ class AgentCultural(models.Model):
     tipo = models.CharField(max_length=17, choices=AGENTE_CHOICES, verbose_name='1.AGENTE O GESTOR CULTURAL', null=True,
                             blank=True)
     image = models.ImageField(verbose_name='Imagen del agente', upload_to='agent/image',blank=True,null=True)
-    name = models.CharField(max_length=30, blank=True, verbose_name='1.1. NOMBRES', null=True)
-    last_name = models.CharField(max_length=30, blank=True, verbose_name='1.2. APELLIDOS', null=True)
-    artistic_name = models.CharField(max_length=30, blank=True, verbose_name='1.3. NOMBRE ARTÍSTICO', null=True)
+    name = models.CharField(max_length=50, blank=True, verbose_name='1.1. NOMBRES', null=True)
+    last_name = models.CharField(max_length=50, blank=True, verbose_name='1.2. APELLIDOS', null=True)
+    artistic_name = models.CharField(max_length=50, blank=True, verbose_name='1.3. NOMBRE ARTÍSTICO', null=True)
     gender = models.ForeignKey(Genero, verbose_name='1.4. GÉNERO', on_delete=models.PROTECT, blank=True, null=True)
-    birthday = models.DateField(verbose_name='1.5. FECHA DE NACIMIENTO', auto_now=False, editable=True, blank=True,
+    birthday = models.CharField(verbose_name='1.5. FECHA DE NACIMIENTO', max_length=50, blank=True,
                                 null=True)
     lugar_nacimiento = models.CharField(max_length=30, blank=True, verbose_name='1.6. LUGAR DE NACIMIENTO', null=True)
     type_document = models.ForeignKey(TypeDocument, verbose_name='1.7. TIPO DOCUMENTO IDENTIDAD', on_delete=models.PROTECT,
@@ -509,12 +509,12 @@ class AgentCultural(models.Model):
     identification = models.IntegerField(max_length=30, verbose_name='1.8. NÚMERO DE DOCUMENTO', blank=True, null=True)
     lugar_expedicion = models.CharField(max_length=30, blank=True, verbose_name='1.9. LUGAR DE EXPEDICIÓN', null=True)
     tarjeta_profesional = models.CharField(max_length=30, blank=True, verbose_name='1.10. TARJETA PROFESIONAL', null=True)
-    expedicion_tarjeta = models.DateField(verbose_name='1.11. FECHA DE EXPEDICIÓN', auto_now=False, editable=True, blank=True,
+    expedicion_tarjeta = models.CharField(verbose_name='1.11. FECHA DE EXPEDICIÓN',max_length=50, blank=True,
                                 null=True)
     passport = models.CharField(max_length=30, blank=True, verbose_name='1.12. PASAPORTE', null=True)
-    expedicion_passport = models.DateField(verbose_name='1.13. FECHA DE EXPEDICIÓN', editable=True,auto_now=False, blank=True,
+    expedicion_passport = models.CharField(verbose_name='1.13. FECHA DE EXPEDICIÓN', max_length=50, blank=True,
                                           null=True)
-    vencimiento_passport = models.DateField(verbose_name='1.14. FECHA DE VENCIMIENTO',editable=True,  auto_now=False, blank=True,
+    vencimiento_passport = models.CharField(verbose_name='1.14. FECHA DE VENCIMIENTO',max_length=50, blank=True,
                                            null=True)
     posee_discapacidad = models.CharField(max_length=2, choices=BOOLEAN_CHOICES, verbose_name='1.15. ¿POSEE ALGUNA DISCAPACIDAD FÍSICA?', null=True, blank=True)
     disability = models.ForeignKey(Disability, verbose_name='1.16. ¿CUÁL ?', on_delete=models.PROTECT, blank=True,
@@ -553,7 +553,7 @@ class AgentCultural(models.Model):
                                            verbose_name='3.5. ¿PERTENECE A UNA ORGANIZACIÓN ARTÍSTICA O CULTURAL?',
                                            null=True,
                                            blank=True)
-    vinculacion_entidad = models.DateField(verbose_name='3.6. ¿DESDE QUÉ AÑO ESTÁ VINCULADO A LA ORGANIZACIÓN ARTÍSTICA O CULTURAL?',editable=True,  auto_now=False,
+    vinculacion_entidad = models.CharField(verbose_name='3.6. ¿DESDE QUÉ AÑO ESTÁ VINCULADO A LA ORGANIZACIÓN ARTÍSTICA O CULTURAL?',max_length=50,
                                           blank=True,
                                           null=True)
     name_entity = models.CharField(max_length=30, blank=True, verbose_name='3.7. NOMBRE DE LA ORGANIZACIÓN ARTÍSTICA O CULTURAL', null=True)
@@ -564,7 +564,7 @@ class AgentCultural(models.Model):
                                 null=True)
 
     titulo = models.CharField(max_length=30, blank=True, verbose_name='3.10.TÍTULO RECIBIDO', null=True)
-    ano_titulo = models.DateField(verbose_name='3.11. AÑO ', auto_now=False, editable=True,
+    ano_titulo = models.CharField(verbose_name='3.11. AÑO ', max_length=50,
                                            blank=True,
                                            null=True)
     entidad_educativa = models.CharField(max_length=60, blank=True, verbose_name='3.12. NOMBRE DE ENTIDAD EDUCATIVA', null=True)
@@ -586,7 +586,7 @@ class AgentCultural(models.Model):
     fuente_ingreso = MultiSelectField(verbose_name='4.5. FUENTES DE INGRESO', choices=FUENTEINGRESO_CHOICES,
                                        blank=True,
                                        null=True)
-    porcentaje = models.IntegerField(max_length=30, verbose_name='4.6. ¿QUÉ PORCENTAJE DE SUS INGREOS PROVIENEN DE LA ACTIVIDAD ARTÍSTICA Y CULTURAL?', blank=True, null=True)
+    porcentaje = models.CharField(max_length=30, verbose_name='4.6. ¿QUÉ PORCENTAJE DE SUS INGREOS PROVIENEN DE LA ACTIVIDAD ARTÍSTICA Y CULTURAL?', blank=True, null=True)
     regimen_salud = models.CharField(max_length=2, choices=BOOLEAN_CHOICES,
                                          verbose_name='4.7. SE ENCUENTRA ACTUALMENTE AFILIADO AL RÉGIMEN DE SEGURIDAD SOCIAL EN SALUD?',
                                          null=True,
