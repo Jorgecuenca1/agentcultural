@@ -199,7 +199,7 @@ class AgentCulturalForm(forms.ModelForm):
     instagram = forms.CharField(
         label='Instagram',
         widget=forms.Textarea(
-            attrs={"placeholder": "4.6. ¿QUÉ PORCENTAJE DE SUS INGREOS PROVIENEN DE LA ACTIVIDAD ARTÍSTICA Y CULTURAL?",
+            attrs={"placeholder": "Instagram",
                    "class": "new-class-name two",
                    "id": "my-id-for-textarea",
                    "rows": 1,
@@ -211,10 +211,7 @@ class AgentCulturalForm(forms.ModelForm):
         fields = '__all__'
         exclude = ('user',)
         widgets = {
-            'expedicion_tarjeta': XYZ_DateInput(format=["%Y-%m-%d"], ),
-            'vencimiento_passport': XYZ_DateInput(format=["%Y-%m-%d"], ),
-            'vinculacion_entidad': XYZ_DateInput(format=["%Y-%m-%d"], ),
-            'ano_titulo': XYZ_DateInput(format=["%Y-%m-%d"], ),
+
             'archivo': CustomClearableFileInput
         }
 
