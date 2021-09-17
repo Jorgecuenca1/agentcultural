@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, ClearableFileInput
-from .models import Pqrsd, EncuestaTransparencia, Torneo, Presupuesto
+from .models import Pqrsd, EncuestaTransparencia, Torneo, Presupuesto, Perfil
 from .models import Tiposolicitud, Nivel, Meta
 
 class CustomClearableFileInput(ClearableFileInput):
@@ -212,13 +212,20 @@ class PresupuestoForm(forms.ModelForm):
                                                         "rows": 1,
                                                         'cols': 80
                                                         }))
-    email = forms.EmailField(label='Correo *',
+    email = forms.EmailField(label='Correo electrónico*',
                     widget=forms.Textarea(attrs={"placeholder": "Correo *",
                                                   "class": "new-class-name two",
                                                   "id": "my-id-for-textarea",
                                                   "rows": 1,
                                                   'cols': 80
                                                   }))
+    identification = forms.CharField(label='Identificación : *',
+                           widget=forms.Textarea(attrs={"placeholder": "Identificación : *",
+                                                        "class": "new-class-name two",
+                                                        "id": "my-id-for-textarea",
+                                                        "rows": 1,
+                                                        'cols': 80
+                                                        }))
     phone = forms.CharField(label='Teléfono fijo:',
                            widget=forms.Textarea(attrs={"placeholder": "Teléfono fijo:",
                                                         "class": "new-class-name two",
@@ -226,23 +233,24 @@ class PresupuestoForm(forms.ModelForm):
                                                         "rows": 1,
                                                         'cols': 80
                                                         }))
-    city = forms.CharField(label='Municipio',
-                                 widget=forms.Textarea(attrs={"placeholder": "Municipio",
+    city = forms.CharField(label='Municipio de residencia',
+                                 widget=forms.Textarea(attrs={"placeholder": "Municipio de residencia",
                                                               "class": "new-class-name two",
                                                               "id": "my-id-for-textarea",
                                                               "rows": 1,
                                                                 'cols': 80
                                                               }))
+    perfil = forms.ModelChoiceField(label='Despliegue las siguientes opciones',queryset=Perfil.objects.all())
 
     entity = forms.CharField(label='Nombre de la entidad *',
-                                     widget=forms.Textarea(attrs={"placeholder": "Nombre de la entidad *",
+                                     widget=forms.Textarea(attrs={"placeholder": "Si actuá en representación, indique Nombre de Entidad, instancia,institución,organismo,entre otros",
                                                                   "class": "new-class-name two",
                                                                   "id": "my-id-for-textarea",
-                                                                  "rows": 1,
+                                                                  "rows": 2,
                                                                   'cols': 80
                                                                   }))
-    iniciativa = forms.CharField(label='Iniciativa',
-                                 widget=forms.Textarea(attrs={"placeholder": "Iniciativa",
+    iniciativa = forms.CharField(label='Nombre de la Iniciativa',
+                                 widget=forms.Textarea(attrs={"placeholder": "Nombre de la Iniciativa",
                                                               "class": "new-class-name two",
                                                               "id": "my-id-for-textarea",
                                                               "rows": 4,
@@ -305,8 +313,8 @@ class PresupuestoForm(forms.ModelForm):
                                                                    "rows": 1,
                                                                'cols': 80
                                                                 }))
-    descripcion_presupuesto = forms.CharField(label='6.1. Breve descripcioón del presupuesto estimado por actividades:',
-                                       widget=forms.Textarea(attrs={"placeholder": "6.1. Breve descripcioón del presupuesto estimado por actividades:",
+    descripcion_presupuesto = forms.CharField(label='6.1. Breve descripción del presupuesto estimado por actividades:',
+                                       widget=forms.Textarea(attrs={"placeholder": "6.1. Breve descripción del presupuesto estimado por actividades:",
                                                                     "class": "new-class-name two",
                                                                     "id": "my-id-for-textarea",
                                                                     "rows": 1,
@@ -319,7 +327,14 @@ class PresupuestoForm(forms.ModelForm):
                                                                            "rows": 1,
                                                                            'cols': 80
                                                                            }))
-    meta1 = forms.ModelChoiceField(queryset=Meta.objects.all())
+    observaciones = forms.CharField(label='7. Observaciones:',
+                                   widget=forms.Textarea(attrs={"placeholder": "11. Observaciones:",
+                                                                "class": "new-class-name two",
+                                                                "id": "my-id-for-textarea",
+                                                                "rows": 2,
+                                                                'cols': 80
+                                                                }))
+
 
     class Meta:
         model = Presupuesto

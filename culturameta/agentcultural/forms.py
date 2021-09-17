@@ -189,12 +189,6 @@ class AgentCulturalForm(forms.ModelForm):
                    "rows": 1,
                    'cols': 80
                    }))
-    practica = forms.MultipleChoiceField(
-        required=False,
-        label='Occupation',
-        widget=CheckboxSelectMultiple(),
-        choices=AGENTEAREA_CHOICES
-    )
 
     instagram = forms.CharField(
         label='Instagram',

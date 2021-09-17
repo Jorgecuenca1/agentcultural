@@ -33,7 +33,6 @@ AREA_CHOICES = (
         ('CIRCO', 'CIRCO'),
         ('ARTES PLÁSTICAS Y VISUALES', 'ARTES PLÁSTICAS Y VISUALES'),
         ('CINEMATOGRAFÍA', 'CINEMATOGRAFÍA'),
-        ('GASTRONIMÍA', 'GASTRONOMÍA'),
         ('LITERATURA', 'LITERATURA'),
         ('PATRIMONIO', 'PATRIMONIO'),
         ('RED DE BIBLIOTECAS PÚBLICAS DEL META', 'RED DE BIBLIOTECAS PÚBLICAS DEL META'),
@@ -276,9 +275,13 @@ class Meta(models.Model):
 class Presupuesto(models.Model):
     name = models.CharField(max_length=100, blank=True, verbose_name='Nombres y Aepllidos : *', null=True)
     email = models.EmailField(max_length=20, blank=True, verbose_name='Correo *', null=True)
-    phone = models.CharField(max_length=100, blank=True, verbose_name='Teléfono fijo:', null=True)
+    type_document = models.ForeignKey(TypeDocument, verbose_name='Tipo de documento',
+                                      on_delete=models.PROTECT,
+                                      blank=True, null=True)
+    identification = models.CharField(max_length=30, verbose_name='Identificación', blank=True, null=True)
+    phone = models.IntegerField(max_length=100, blank=True, verbose_name='Teléfono fijo:', null=True)
     city = models.CharField(max_length=100, blank=True, verbose_name='Municipio', null=True)
-    perfil = models.ForeignKey(Perfil, verbose_name='Perfil: *',
+    perfil = models.ForeignKey(Perfil, verbose_name='Perfil *',
                                on_delete=models.PROTECT,
                                blank=True, null=True)
     entity = models.CharField(max_length=100, blank=True, verbose_name='Nombre de la entidad *', null=True)
@@ -291,9 +294,9 @@ class Presupuesto(models.Model):
     beneficiarios = models.TextField(blank=True, verbose_name='5. Beneficiarios:', null=True)
     poblacion = models.TextField(blank=True, verbose_name='5.1. Cantidad Poblacion objetivo:', null=True)
     poblacion_objetivo = models.TextField(blank=True, verbose_name='5.2. Caracterización Población objetivo (Urbana, rural, con enfoque diferencial, ciclo vida:', null=True)
-    valor_estimado = models.TextField(blank=True, verbose_name='6. Valor estimado de la Iniciativa', null=True)
+    valor_estimado = models.IntegerField(blank=True, verbose_name='6. Valor estimado de la Iniciativa', null=True)
     descripcion_presupuesto = models.TextField(blank=True, verbose_name='6.1. Breve descripcioón del presupuesto estimado por actividades:', null=True)
-    ejecucion = models.TextField(blank=True, verbose_name='7. Tiempo de Ejecución en meses:', null=True)
+    ejecucion = models.IntegerField(blank=True, verbose_name='7. Tiempo de Ejecución en meses:', null=True)
     lineas = MultiSelectField(max_length=82, choices=LINEAS_CHOICES,
                                        verbose_name='8. Líneas Estratégicas: ',
                                        null=True,
@@ -314,7 +317,7 @@ class Presupuesto(models.Model):
     meta4 = models.ForeignKey(Meta, related_name='meta4', verbose_name='Meta: *',
                               on_delete=models.PROTECT,
                               blank=True, null=True)
-
+    observaciones = models.TextField(blank=True, verbose_name='11. Observaciones:', null=True)
     created = models.DateTimeField(auto_now_add=True)
 
 
