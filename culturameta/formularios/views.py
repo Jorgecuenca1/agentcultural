@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from .forms import TorneoForm, EncuestaTransparenciaForm, PqrsdForm, PresupuestoForm
+from .forms import TorneoForm, EncuestaTransparenciaForm, PqrsdForm, PresupuestoForm, FilarmonicaForm
 from .models import Pqrsd, Tiposolicitud, TypeDocument, Nivel, EncuestaTransparencia, Modalidad, Propuesta, Torneo
 
 
@@ -67,3 +67,18 @@ def presupuesto(request):
 
     context = {'form': form}
     return render(request, 'users/presupuesto.html', context)
+
+def filarmonica(request):
+    if request.method == "POST":
+        # update DB
+        form = FilarmonicaForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect('https://culturameta.gov.co')
+    else:
+        # show the form
+        form = FilarmonicaForm()
+
+    context = {'form': form}
+    return render(request, 'users/filarmonica.html', context)

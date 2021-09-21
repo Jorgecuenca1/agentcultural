@@ -47,30 +47,20 @@ class Perfil(models.Model):
 
     def __str__(self):
         return self.name
-class Country(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(verbose_name='Nombre del país', max_length=254)
-    phone_code = models.CharField(verbose_name='Código número telefónico', max_length=5)
 
-    class Meta:
-        verbose_name = 'País'
-        verbose_name_plural = 'Paises'
-
-    def __str__(self):
-        return self.name
 
 
 class Region(models.Model):
     name = models.CharField(verbose_name='Nombre del departamento', max_length=254)
 
-    country = models.ForeignKey(Country, on_delete=models.PROTECT, verbose_name='País')
+
 
     class Meta:
         verbose_name = 'Departamento'
         verbose_name_plural = 'Departamentos'
 
     def __str__(self):
-        return '{} | {}'.format(self.country.name, self.name)
+        return '{} '.format(self.name)
 
 
 class City(models.Model):
@@ -83,7 +73,7 @@ class City(models.Model):
         verbose_name_plural = 'Municipios'
 
     def __str__(self):
-        return '{} | {} | {}'.format(self.state.country.name, self.state.name, self.name)
+        return '{} | {}'.format(self.state.name, self.name)
 
     def save(self, *args, **kwargs):
         super(City, self).save(*args, **kwargs)
@@ -327,3 +317,28 @@ class Presupuesto(models.Model):
     class Meta:
         verbose_name = 'Formulario Hagamos Grande el Meta'
         verbose_name_plural = 'Formulario Hagamos grande el Meta'
+
+class Filarmonica(models.Model):
+    considera = models.CharField(max_length=2, choices=BOOLEAN_CHOICES,
+                                verbose_name='Considera usted pertinente la creación de una orquesta filarmonica en el departamento del Meta:',
+                                null=True,
+                                blank=True)
+
+    justifique = models.TextField( blank=True, verbose_name='Justifique su respuesta', null=True)
+    name = models.CharField(max_length=100, blank=True, verbose_name='Nombres y Aepllidos : *', null=True)
+    city = models.ForeignKey(City, on_delete=models.PROTECT, verbose_name='Municipio')
+    dirige = models.TextField(blank=True, verbose_name='Programa qu dirige', null=True)
+    grado = models.TextField(blank=True, verbose_name='Maximo grado en musica que haya cursado', null=True)
+    grupo = models.TextField(blank=True, verbose_name='Grupo que maneja actualmente en el municipio', null=True)
+    email = models.EmailField(max_length=20, blank=True, verbose_name='Correo *', null=True)
+    phone = models.IntegerField(max_length=100, blank=True, verbose_name='Teléfono fijo:', null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'FILARMONICA'
+        verbose_name_plural = 'FILARMONICA'

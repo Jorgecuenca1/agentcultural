@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm, ClearableFileInput
-from .models import Pqrsd, EncuestaTransparencia, Torneo, Presupuesto, Perfil
+from .models import Pqrsd, EncuestaTransparencia, Torneo, Presupuesto, Perfil, Filarmonica
 from .models import Tiposolicitud, Nivel, Meta
 
 class CustomClearableFileInput(ClearableFileInput):
@@ -338,4 +338,61 @@ class PresupuestoForm(forms.ModelForm):
 
     class Meta:
         model = Presupuesto
+        fields = '__all__'
+
+class FilarmonicaForm(forms.ModelForm):
+    justifique = forms.CharField(label='Justifique su respuesta:',
+                            widget=forms.Textarea(attrs={"placeholder": "Justifique su respuesta:",
+                                                         "class": "new-class-name two",
+                                                         "id": "my-id-for-textarea",
+                                                         "rows": 3,
+                                                         'cols': 80
+                                                         }))
+    name = forms.CharField(label='Nombres y Aepllidos : *',
+                           widget=forms.Textarea(attrs={"placeholder": "Nombres y Aepllidos : *",
+                                                        "class": "new-class-name two",
+                                                        "id": "my-id-for-textarea",
+                                                        "rows": 1,
+                                                        'cols': 80
+                                                        }))
+    dirige = forms.CharField(label='Programa qu dirige:',
+                            widget=forms.Textarea(attrs={"placeholder": "Programa qu dirige:",
+                                                         "class": "new-class-name two",
+                                                         "id": "my-id-for-textarea",
+                                                         "rows": 1,
+                                                         'cols': 80
+                                                         }))
+    grado = forms.CharField(label='Maximo grado en musica que haya cursado:',
+                            widget=forms.Textarea(attrs={"placeholder": "Maximo grado en musica que haya cursado:",
+                                                         "class": "new-class-name two",
+                                                         "id": "my-id-for-textarea",
+                                                         "rows": 1,
+                                                         'cols': 80
+                                                         }))
+    grupo = forms.CharField(label='Grupo que maneja actualmente en el municipio:',
+                            widget=forms.Textarea(attrs={"placeholder": "Grupo que maneja actualmente en el municipio:",
+                                                         "class": "new-class-name two",
+                                                         "id": "my-id-for-textarea",
+                                                         "rows": 1,
+                                                         'cols': 80
+                                                         }))
+    email = forms.EmailField(label='Correo electrónico*',
+                    widget=forms.Textarea(attrs={"placeholder": "Correo *",
+                                                  "class": "new-class-name two",
+                                                  "id": "my-id-for-textarea",
+                                                  "rows": 1,
+                                                  'cols': 80
+                                                  }))
+
+    phone = forms.CharField(label='Teléfono fijo:',
+                           widget=forms.Textarea(attrs={"placeholder": "Teléfono fijo:",
+                                                        "class": "new-class-name two",
+                                                        "id": "my-id-for-textarea",
+                                                        "rows": 1,
+                                                        'cols': 80
+                                                        }))
+
+
+    class Meta:
+        model = Filarmonica
         fields = '__all__'

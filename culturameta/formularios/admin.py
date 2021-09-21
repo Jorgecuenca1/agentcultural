@@ -3,7 +3,7 @@ from import_export.admin import ImportExportModelAdmin
 
 from .models import Tiposolicitud, Nivel, Meta, TypeDocument, Pqrsd, EncuestaTransparencia, Modalidad, Propuesta, \
     Torneo, \
-    Perfil, Programa, Componente, Presupuesto, Region
+    Perfil, Programa, Componente, Presupuesto, Region, Filarmonica, City
 from django.contrib import admin
 from django.contrib.auth.models import User
 
@@ -123,6 +123,17 @@ class RegionAdmin(ImportExportModelAdmin):
 class RegionResource(resources.ModelResource):
     class Meta:
         model = Region
+@admin.register(City)
+class CityAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    list_filter = ('name',)
+
+
+class CityResource(resources.ModelResource):
+    class Meta:
+        model = City
 @admin.register(Programa)
 class ProgramaAdmin(ImportExportModelAdmin):
     list_display = ('pk', 'name',)
@@ -172,3 +183,15 @@ class PresupuestoAdmin(ImportExportModelAdmin):
 class PresupuestoResource(resources.ModelResource):
     class Meta:
         model = Presupuesto
+
+@admin.register(Filarmonica)
+class FilarmonicaAdmin(ImportExportModelAdmin):
+    list_display = ('pk', 'name','email','phone',)
+    list_display_links = ('pk',)
+    list_editable = ('name',)
+    list_filter = ('name',)
+
+
+class FilarmonicaResource(resources.ModelResource):
+    class Meta:
+        model = Filarmonica
