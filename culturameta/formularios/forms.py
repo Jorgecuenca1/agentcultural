@@ -233,13 +233,7 @@ class PresupuestoForm(forms.ModelForm):
                                                         "rows": 1,
                                                         'cols': 80
                                                         }))
-    city = forms.CharField(label='Municipio de residencia',
-                                 widget=forms.Textarea(attrs={"placeholder": "Municipio de residencia",
-                                                              "class": "new-class-name two",
-                                                              "id": "my-id-for-textarea",
-                                                              "rows": 1,
-                                                                'cols': 80
-                                                              }))
+
     perfil = forms.ModelChoiceField(label='Despliegue las siguientes opciones',queryset=Perfil.objects.all())
 
     entity = forms.CharField(label='Nombre de la entidad *',
