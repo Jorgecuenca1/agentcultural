@@ -257,7 +257,7 @@ class Meta(models.Model):
         verbose_name_plural = 'Metas'
 
     def __str__(self):
-        return '{} | {} | {} | {}'.format(self.componente.programa.name, self.componente.name, self.codigo,self.name)
+        return '{} | {} | {} | {}'.format(self.name, self.componente.programa.name, self.componente.name, self.codigo)
 
     def save(self, *args, **kwargs):
         super(Meta, self).save(*args, **kwargs)
