@@ -270,7 +270,7 @@ class Presupuesto(models.Model):
                                       blank=True, null=True)
     identification = models.CharField(max_length=30, verbose_name='Identificación', blank=True, null=True)
     phone = models.IntegerField(max_length=100, blank=True, verbose_name='Teléfono fijo:', null=True)
-    city = models.CharField(max_length=100, blank=True, verbose_name='Municipio', null=True)
+    city = models.ForeignKey(City, on_delete=models.PROTECT, verbose_name='Municipio', null=True, blank=True,)
     perfil = models.ForeignKey(Perfil, verbose_name='Perfil *',
                                on_delete=models.PROTECT,
                                blank=True, null=True)
