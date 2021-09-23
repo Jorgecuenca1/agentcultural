@@ -219,8 +219,8 @@ class PresupuestoForm(forms.ModelForm):
                                                   "rows": 1,
                                                   'cols': 80
                                                   }))
-    identification = forms.CharField(label='Identificación *',
-                           widget=forms.Textarea(attrs={"placeholder": "Identificación : *",
+    identification = forms.CharField(label='Número de identificación *',
+                           widget=forms.Textarea(attrs={"placeholder": "Número de identificación : *",
                                                         "class": "new-class-name two",
                                                         "id": "my-id-for-textarea",
                                                         "rows": 1,
