@@ -21,7 +21,7 @@ LINEAS_CHOICES = (
         ('Formación', 'Formación'),
         ('Investigación e información', 'Investigación e información'),
         ('Creación y Producción', 'Creación y Producción'),
-        ('Circulación y producción', 'Circulación y produccin'),
+        ('Circulación y producción', 'Circulación y producción'),
         ('Circulación y apropiación', 'Circulación y apropiación'),
         ('Emprendimiento y asociatividad', 'Emprendimiento y asociatividad'),
 
