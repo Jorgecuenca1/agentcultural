@@ -21,7 +21,7 @@ LINEAS_CHOICES = (
         ('Formación', 'Formación'),
         ('Investigación e información', 'Investigación e información'),
         ('Creación y Producción', 'Creación y Producción'),
-        ('Circulación y produccin', 'Circulación y produccin'),
+        ('Circulación y producción', 'Circulación y produccin'),
         ('Circulación y apropiación', 'Circulación y apropiación'),
         ('Emprendimiento y asociatividad', 'Emprendimiento y asociatividad'),
 
@@ -295,16 +295,16 @@ class Presupuesto(models.Model):
                               verbose_name='9. Área (s) Artísticas + Patrimonio + Red de bibliotecas: ',
                               null=True,
                               blank=True)
-    meta1 = models.ForeignKey(Meta, related_name='meta1',verbose_name='Meta: *',
+    meta1 = models.ForeignKey(Meta, related_name='meta1',verbose_name='10. Seleccione Meta que articula con la iniciativa',
                                on_delete=models.PROTECT,
                                blank=True, null=True)
-    meta2 = models.ForeignKey(Meta,  related_name='meta2',verbose_name='Meta: *',
+    meta2 = models.ForeignKey(Meta,  related_name='meta2',verbose_name='',
                               on_delete=models.PROTECT,
                               blank=True, null=True)
-    meta3 = models.ForeignKey(Meta, related_name='meta3', verbose_name='Meta: *',
+    meta3 = models.ForeignKey(Meta, related_name='meta3', verbose_name='',
                               on_delete=models.PROTECT,
                               blank=True, null=True)
-    meta4 = models.ForeignKey(Meta, related_name='meta4', verbose_name='Meta: *',
+    meta4 = models.ForeignKey(Meta, related_name='meta4', verbose_name='',
                               on_delete=models.PROTECT,
                               blank=True, null=True)
     observaciones = models.TextField(blank=True, verbose_name='11. Observaciones:', null=True)

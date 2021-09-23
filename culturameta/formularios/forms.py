@@ -205,8 +205,8 @@ class TorneoForm(forms.ModelForm):
         }
 
 class PresupuestoForm(forms.ModelForm):
-    name = forms.CharField(label='Nombres y Aepllidos : *',
-                           widget=forms.Textarea(attrs={"placeholder": "Nombres y Aepllidos : *",
+    name = forms.CharField(label='Nombres y Apellidos : *',
+                           widget=forms.Textarea(attrs={"placeholder": "Nombres y Apellidos : *",
                                                         "class": "new-class-name two",
                                                         "id": "my-id-for-textarea",
                                                         "rows": 1,
@@ -226,15 +226,15 @@ class PresupuestoForm(forms.ModelForm):
                                                         "rows": 1,
                                                         'cols': 80
                                                         }))
-    phone = forms.CharField(label='Teléfono fijo:',
-                           widget=forms.Textarea(attrs={"placeholder": "Teléfono fijo:",
+    phone = forms.CharField(label='Teléfono fijo o celular:',
+                           widget=forms.Textarea(attrs={"placeholder": "Teléfono fijo o celular:",
                                                         "class": "new-class-name two",
                                                         "id": "my-id-for-textarea",
                                                         "rows": 1,
                                                         'cols': 80
                                                         }))
 
-    perfil = forms.ModelChoiceField(label='Despliegue las siguientes opciones',queryset=Perfil.objects.all())
+    perfil = forms.ModelChoiceField(label='Tipo de Actor',queryset=Perfil.objects.all())
 
     entity = forms.CharField(label='Nombre de la entidad *',
                                      widget=forms.Textarea(attrs={"placeholder": "Si actuá en representación, indique Nombre de Entidad, instancia,institución,organismo,entre otros",
@@ -321,7 +321,7 @@ class PresupuestoForm(forms.ModelForm):
                                                                            "rows": 1,
                                                                            'cols': 80
                                                                            }))
-    observaciones = forms.CharField(label='7. Observaciones:',
+    observaciones = forms.CharField(label='11. Observaciones:',
                                    widget=forms.Textarea(attrs={"placeholder": "11. Observaciones:",
                                                                 "class": "new-class-name two",
                                                                 "id": "my-id-for-textarea",
