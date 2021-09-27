@@ -343,7 +343,7 @@ class FilarmonicaForm(forms.ModelForm):
                                                          'cols': 80
                                                          }))
     name = forms.CharField(label='Nombres y Apellidos : *',
-                           widget=forms.Textarea(attrs={"placeholder": "Nombres y Apellidos : *",
+                           widget=forms.Textarea(attrs={"placeholder": "Nombres y Apellidos *",
                                                         "class": "new-class-name two",
                                                         "id": "my-id-for-textarea",
                                                         "rows": 1,
@@ -357,7 +357,7 @@ class FilarmonicaForm(forms.ModelForm):
                                                          'cols': 80
                                                          }))
     grado = forms.CharField(label='Máximo grado en música que haya cursado:',
-                            widget=forms.Textarea(attrs={"placeholder": "Máximo grado en musica que haya cursado:",
+                            widget=forms.Textarea(attrs={"placeholder": "Máximo grado en música que haya cursado:",
                                                          "class": "new-class-name two",
                                                          "id": "my-id-for-textarea",
                                                          "rows": 1,
