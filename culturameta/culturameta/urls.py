@@ -33,7 +33,7 @@ urlpatterns = [
     path('users/entidad/',agentcultural_views.entidad, name='entidad'),
     path('users/logout/', agentcultural_views.logout_view, name='logout'),
     path('users/agenteoentidad/',agentcultural_views.agenteoentidad, name='agenteoentidad'),
-    path('users/torneo/',formularios_views.torneo, name='torneo'),
+
     path('users/presupuesto/',formularios_views.presupuesto, name='presupuesto'),
     path('filarmonica/',formularios_views.filarmonica, name='filarmonica'),
     path('users/agentcultural/<int:id>/edit', agentcultural_views.edit_agentcultural, name='edit_agentcultural'),
