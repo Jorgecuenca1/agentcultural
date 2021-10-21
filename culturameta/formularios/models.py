@@ -320,7 +320,7 @@ class Presupuesto(models.Model):
 
 class Filarmonica(models.Model):
     considera = models.CharField(max_length=2, choices=BOOLEAN_CHOICES,
-                                verbose_name='Considera usted pertinente la creación de una orquesta filarmonica en el departamento del Meta:',
+                                verbose_name='Considera usted pertinente la creación de una orquesta filarmónica en el departamento del Meta:',
                                 null=True,
                                 blank=True)
 
