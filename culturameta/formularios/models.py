@@ -344,26 +344,17 @@ class Filarmonica(models.Model):
         verbose_name_plural = 'FILARMONICA'
 
 class Contratista(models.Model):
-    user = models.OneToOneField(User, verbose_name='Creador de actividad', on_delete=models.PROTECT, blank=True,
-                                null=True)
-    name = models.CharField(max_length=50, blank=True, verbose_name='Nombres', null=True)
-    last_name = models.CharField(max_length=50, blank=True, verbose_name='Apeliidos', null=True)
-    cedula = models.CharField(max_length=50, blank=True, verbose_name='Cédula', null=True)
-    area = models.CharField(max_length=50, blank=True, verbose_name='Area de trabajo(ejemplo musica)', null=True)
-    codigo = models.CharField(max_length=50, blank=True, verbose_name='Codigo contrato', null=True)
-    objeto = models.TextField(blank=True, verbose_name='Objeto del contrato', null=True)
-    email = models.EmailField(max_length=20, blank=True, verbose_name='Correo *', null=True)
-    phone = models.IntegerField(max_length=100, blank=True, verbose_name='Teléfono fijo:', null=True)
-    titulo = models.CharField(max_length=50, blank=True, verbose_name='Titulo del trabajo', null=True)
-    justifique = models.TextField(blank=True, verbose_name='Justifique su trabajo', null=True)
+
+    titulo = models.CharField(max_length=50, blank=True, verbose_name='Titulo del Documento', null=True)
+    justifique = models.TextField(blank=True, verbose_name='Justifique el documento', null=True)
     document = models.FileField(verbose_name='Documento', upload_to='document/contratista', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
 
     def __str__(self):
-        return self.name
+        return self.titulo
 
     class Meta:
-        verbose_name = 'CONTRATISTA'
-        verbose_name_plural = 'CONTRATISTA'
+        verbose_name = 'DOCUMENTOS PATRIMONIO'
+        verbose_name_plural = 'DOCUMENTOS PATRIMONIO'
 

@@ -198,11 +198,11 @@ class FilarmonicaResource(resources.ModelResource):
 
 @admin.register(Contratista)
 class ContratistaAdmin(ImportExportModelAdmin):
-    list_display = ('pk', 'name','last_name','cedula','codigo' )
+    list_display = ('pk', 'titulo', )
     list_display_links = ('pk',)
-    list_editable = ('name',)
-    search_fields = ('name','last_name','cedula','codigo' )
-    list_filter = ('name','cedula','codigo' )
+    list_editable = ('titulo',)
+    search_fields = ('titulo', )
+    list_filter = ('titulo', )
 class ContratistaResource(resources.ModelResource):
    class Meta:
     model = Contratista
