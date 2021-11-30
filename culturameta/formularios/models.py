@@ -348,6 +348,7 @@ class Contratista(models.Model):
                                 null=True)
     name = models.CharField(max_length=50, blank=True, verbose_name='Nombres', null=True)
     last_name = models.CharField(max_length=50, blank=True, verbose_name='Apeliidos', null=True)
+    cedula = models.CharField(max_length=50, blank=True, verbose_name='Cédula', null=True)
     area = models.CharField(max_length=50, blank=True, verbose_name='Area de trabajo(ejemplo musica)', null=True)
     codigo = models.CharField(max_length=50, blank=True, verbose_name='Codigo contrato', null=True)
     objeto = models.TextField(blank=True, verbose_name='Objeto del contrato', null=True)
