@@ -363,6 +363,6 @@ class Contratista(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'FILARMONICA'
-        verbose_name_plural = 'FILARMONICA'
+        verbose_name = 'CONTRATISTA'
+        verbose_name_plural = 'CONTRATISTA'
 
