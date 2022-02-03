@@ -19,7 +19,7 @@ from django.urls import path
 from agentcultural import views as agentcultural_views
 from formularios import views as formularios_views
 from django.conf.urls.static import static
-
+from django.contrib.auth.views import PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView,PasswordResetView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/pqrsd/',formularios_views.pqrsd,name='pqrsd'),
@@ -40,6 +40,19 @@ urlpatterns = [
     path('users/entidad/<int:id>/edit', agentcultural_views.edit_entidad, name='edit_entidad'),
     path('export/', agentcultural_views.export_pdf, name="export-pdf" ),
     path('exporte/', agentcultural_views.export_pdfe, name="export-pdfe" ),
-    path('portafoliopdf/', agentcultural_views.export_pdfp, name="export-pdfp" )
+    path('portafoliopdf/', agentcultural_views.export_pdfp, name="export-pdfp" ),
+path('password/reset/',
+        PasswordResetView.as_view(template_name='registration/password_reset_form.html',
+                                              html_email_template_name='registration/password_reset_email.html'),
+         name='password_reset'),
+path('password/reset/hecho/',
+     PasswordResetDoneView.as_view(template_name='registration/password_reset_done.html'),
 
+     name='password_reset_done'),
+path('password/reset/confirmar/<uidb64>/<token>/',
+     PasswordResetConfirmView.as_view(template_name='registration/password_reset_confirm.html'),
+     name='password_reset_confirm'),
+path('password/reset/completo/',
+     PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'),
+     name='password_reset_complete')
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

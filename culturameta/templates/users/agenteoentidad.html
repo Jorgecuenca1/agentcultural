@@ -15,6 +15,7 @@
 
   </head>
 <body>
+  {% for profile in profiles %}
 <br/>
 <br/>
 <br/>
@@ -34,7 +35,7 @@
 
         <h5 class="card-title">FORMULARIO PARA AGENTES Y GESTORES CULTURALES</h5>
         <p class="card-text">Agrega tu información no esperes mas</p>
-         <a href="/users/datos" class="btn btn-info" role="button">Agregarte como agente cultural o gestor cultural</a>
+         <a href="{% url 'edit_agentcultural' id=profile.id %}" class="btn btn-info" role="button">Agregarte como agente cultural o gestor cultural</a>
       </div>
     </div>
   </div>
@@ -43,7 +44,7 @@
       <div class="card-body">
         <h5 class="card-title">FORMULARIO PARA ENTIDADES CULTURALES</h5>
         <p class="card-text">Agregala no lo dudes.</p>
-        <a href="/users/entidad" class="btn btn-info" role="button">Agregar Entidad</a>
+        <a href="{% url 'edit_entidad' id=profile.id %}" class="btn btn-info" role="button">Agregar Entidad</a>
       </div>
     </div>
   </div>
@@ -51,7 +52,7 @@
 
 
 
-
+{% endfor %}
 
 </body>
 </html>

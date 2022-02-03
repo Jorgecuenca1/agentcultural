@@ -358,3 +358,25 @@ class Contratista(models.Model):
         verbose_name = 'DOCUMENTOS PATRIMONIO'
         verbose_name_plural = 'DOCUMENTOS PATRIMONIO'
 
+class Asistencia(models.Model):
+    LINEAS_CHOICES = (
+        ('Formación', 'Formación'),
+        ('Investigación e información', 'Investigación e información'),
+        ('Creación y Producción', 'Creación y Producción'),
+        ('Circulación y producción', 'Circulación y producción'),
+        ('Circulación y apropiación', 'Circulación y apropiación'),
+        ('Emprendimiento y asociatividad', 'Emprendimiento y asociatividad'),
+
+    )
+    titulo = models.CharField(max_length=50, blank=True, verbose_name='Titulo del Documento', null=True)
+    justifique = models.TextField(blank=True, verbose_name='Justifique el documento', null=True)
+    document = models.FileField(verbose_name='Documento', upload_to='document/contratista', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return self.titulo
+
+    class Meta:
+        verbose_name = 'SEGUIMIENTO ASISTENCIAS'
+        verbose_name_plural = 'SEGUIMIENTO ASISTENCIAS'

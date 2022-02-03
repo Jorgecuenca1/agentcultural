@@ -59,14 +59,17 @@ def login_view(request):
 
     return render(request, 'users/login.html')
 def agenteoentidad(request):
+    user = request.user
 
+    profiles = AgentCultural.objects.filter(user=user, created__lte=timezone.now()).order_by('created')
 
-    return render(request, 'users/agenteoentidad.html')
+    return render(request, 'users/agenteoentidad.html',{'profiles': profiles,})
 def datos(request):
     user = request.user
 
 
     profiles = AgentCultural.objects.filter(user=user, created__lte=timezone.now()).order_by('created')
+
 
     return render(request, 'users/datos.html',
                   {'profiles': profiles,})
