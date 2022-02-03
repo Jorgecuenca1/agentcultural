@@ -24,6 +24,7 @@ class RegimenResource(resources.ModelResource):
    class Meta:
     model = Regimen
 
+
 @admin.register(Subregimen)
 class SubregimenAdmin(ImportExportModelAdmin):
     list_display = ('pk', 'name',)
@@ -352,7 +353,11 @@ class AgentCulturalAdmin(ImportExportModelAdmin):
 class AgentCulturalResource(resources.ModelResource):
    class Meta:
     model = AgentCultural
-
+    fields = ('pk', 'tipo','user', 'name', 'last_name','artistic_name', 'gender',  'lugar_nacimiento', 'type_document',  'identification', 'lugar_expedicion',
+    'tarjeta_profesional', 'expedicion_tarjeta', 'passport', 'expedicion_passport', 'vencimiento_passport', 'posee_discapacidad', 'disability', 'posee_etnico', 'etnico','esvictima',
+    'victima',  'zona', 'adress','adress2', 'email','web',  'forma_practica', 'area2','practica', 'pertenece_entidad', 'vinculacion_entidad',
+    'name_entity', 'nivel_educacion', 'titulo','ano_titulo',  'otra_actividad','fuente_ingreso',  'regimen_salud', 'health_regimen',
+    'regimen_pension',  'regimen_arl', 'created',)
 @admin.register(Entidad)
 class EntidadAdmin(ImportExportModelAdmin):
 
