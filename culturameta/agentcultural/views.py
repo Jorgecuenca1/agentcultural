@@ -109,7 +109,7 @@ def edit_agentcultural(request, id):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            return redirect('datos')
+            return redirect('agenteoentidad')
     else:
         # show the form
         form = AgentCulturalForm(instance=post)
