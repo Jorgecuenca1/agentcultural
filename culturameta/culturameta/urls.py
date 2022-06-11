@@ -22,6 +22,8 @@ from django.conf.urls.static import static
 from django.contrib.auth.views import PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView,PasswordResetView
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('chiguire/',formularios_views.chiguire,name='chiguire'),
+    path('rutaturistica/',formularios_views.rutaturistica,name='rutaturistica'),
     path('users/pqrsd/',formularios_views.pqrsd,name='pqrsd'),
     path('users/informacion/', agentcultural_views.informacion, name='informacion'),
     path('users/encuestatransparencia/',formularios_views.encuestatransparencia,name='encuestatransparencia'),

@@ -225,6 +225,25 @@ class Torneo(models.Model):
         verbose_name = 'Torneo del joropo'
         verbose_name_plural = 'Torneo del joropo'
 
+class Patrimonio(models.Model):
+    name = models.CharField(verbose_name='Titutlo', max_length=254)
+
+    class Meta:
+        verbose_name = 'Catalogo Patrimonio'
+        verbose_name_plural = 'Catalogo patrimonio'
+
+    def __str__(self):
+        return self.name
+class Ruta(models.Model):
+    name = models.CharField(verbose_name='Titutlo', max_length=254)
+
+    class Meta:
+        verbose_name = 'Ruta'
+        verbose_name_plural = 'Rutas'
+
+    def __str__(self):
+        return self.name
+
 class Programa(models.Model):
     name = models.CharField(verbose_name='Nombre de Programa', max_length=254)
 

@@ -3,8 +3,14 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from .forms import TorneoForm, EncuestaTransparenciaForm, PqrsdForm, PresupuestoForm, FilarmonicaForm
 from .models import Pqrsd, Tiposolicitud, TypeDocument, Nivel, EncuestaTransparencia, Modalidad, Propuesta, Torneo
+def rutaturistica(request):
 
 
+    return render(request, 'users/rutaturistica.html')
+def chiguire(request):
+
+
+    return render(request, 'users/chiguire.html')
 def exito(request):
 
 
