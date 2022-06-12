@@ -235,8 +235,15 @@ class Patrimonio(models.Model):
     def __str__(self):
         return self.name
 class Ruta(models.Model):
-    name = models.CharField(verbose_name='Titutlo', max_length=254)
-
+    name = models.CharField(verbose_name='Título', max_length=254, null= True, blank= True)
+    breve = models.TextField(verbose_name="Breve Descripción", null= True, blank= True)
+    descripcion = models.TextField(verbose_name="Descripción", null= True, blank= True)
+    duracion = models.CharField(verbose_name='Duración', max_length=254, null= True, blank= True)
+    tiempoapie = models.CharField(verbose_name='Tiempo a pie', max_length=254, null=True, blank=True)
+    Tiempoenvehiculo= models.CharField(verbose_name='Tiempo en vehiculo', max_length=254, null=True, blank=True)
+    longitud = models.CharField(verbose_name='Longitud', max_length=254, null=True, blank=True)
+    temporada = models.CharField(verbose_name='Temporada', max_length=254, null=True, blank=True)
+    edad = models.CharField(verbose_name='Edad recomendada', max_length=254, null=True, blank=True)
     class Meta:
         verbose_name = 'Ruta'
         verbose_name_plural = 'Rutas'
