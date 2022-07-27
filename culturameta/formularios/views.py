@@ -7,6 +7,14 @@ def rutaturistica(request):
 
 
     return render(request, 'users/rutaturistica.html')
+def votar(request):
+
+
+    return render(request, 'users/votar.html')
+def torneo2022(request):
+
+
+    return render(request, 'users/torneo2022.html')
 def chiguire(request):
 
 

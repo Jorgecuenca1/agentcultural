@@ -23,7 +23,9 @@ from django.contrib.auth.views import PasswordResetDoneView, PasswordResetConfir
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('chiguire/',formularios_views.chiguire,name='chiguire'),
+    path('votar/',formularios_views.votar,name='votar'),
     path('rutaturistica/',formularios_views.rutaturistica,name='rutaturistica'),
+    path('torneo2022/',formularios_views.torneo2022,name='torneo2022'),
     path('users/pqrsd/',formularios_views.pqrsd,name='pqrsd'),
     path('users/informacion/', agentcultural_views.informacion, name='informacion'),
     path('users/encuestatransparencia/',formularios_views.encuestatransparencia,name='encuestatransparencia'),
