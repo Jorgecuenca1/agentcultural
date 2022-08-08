@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+<style>
+a {
+  font-family: "Sofia", sans-serif;
+}
+</style>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -129,9 +134,31 @@
 
 </div>
 
-<iframe width="100%" height="600"  src="https://www.youtube.com/embed/Z7ZciZwROy4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+     <img class="d-block w-100"width="100%" height="600" src="https://backend.culturameta.gov.co/media/banner_tor4neo.png" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+     <iframe width="100%" height="600" src="https://www.youtube.com/embed/Z7ZciZwROy4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+    </div>
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 <div class="col-sm-12">
      <div class="row justify-content-center">
 
@@ -141,8 +168,8 @@
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Modalidad Inédita
+        <button style ="color:#000000;" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+         + Modalidad Inédita
         </button>
       </h5>
     </div>
@@ -150,12 +177,12 @@
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Poema Inédito</a>
-  <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Golpe Inédito</a>
-  <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Pasaje Inédito</a>
-  <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Obra inédita instrumental para Arpa</a>
-    <a class="nav-link" id="vi-pills-settings-tab" data-toggle="pill" href="#v-pills-arpa" role="tab" aria-controls="v-pills-arpa" aria-selected="false">Obra inédita instrumental para Bandola Llanera</a>
-        <a class="nav-link" id="vii-pills-settings-tab" data-toggle="pill" href="#v-pills-bandola" role="tab" aria-controls="v-pills-bandola" aria-selected="false">Obra inédita instrumental para Cuatro Llanero</a>
+  <a style ="color:#000000; font-family: sans-serif;"class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Poema Inédito</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Golpe Inédito</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Pasaje Inédito</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Obra inédita instrumental para Arpa</a>
+    <a style ="color:#000000;" class="nav-link" id="vi-pills-settings-tab" data-toggle="pill" href="#v-pills-arpa" role="tab" aria-controls="v-pills-arpa" aria-selected="false">Obra inédita instrumental para Bandola Llanera</a>
+        <a style ="color:#000000;" class="nav-link" id="vii-pills-settings-tab" data-toggle="pill" href="#v-pills-bandola" role="tab" aria-controls="v-pills-bandola" aria-selected="false">Obra inédita instrumental para Cuatro Llanero</a>
         </div>
       </div>
     </div>
@@ -163,42 +190,56 @@
   <div class="card">
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Modalidad Voces
+        <button style ="color:#000000;" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        +  Modalidad Voces
         </button>
       </h5>
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+            <div class="nav flex-column nav-pills" id="v-pills-tab2" role="tablist" aria-orientation="vertical">
+  <a style ="color:#000000;" class="nav-link active" id="v-pills-home-tab2" data-toggle="pill" href="#v-pills-home2" role="tab" aria-controls="v-pills-home2" aria-selected="true">Declamor</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-profile-tab2" data-toggle="pill" href="#v-pills-profile2" role="tab" aria-controls="v-pills-profile2" aria-selected="false">Voz masculina criolla</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-messages-tab2" data-toggle="pill" href="#v-pills-messages2" role="tab" aria-controls="v-pills-messages2" aria-selected="false">Voz masculina Estilizada</a>
+    <a style ="color:#000000;" class="nav-link" id="vi-pills-settings-tab2" data-toggle="pill" href="#vi-pills-settings2" role="tab" aria-controls="vi-pills-settings2" aria-selected="false">Voz femenina criolla</a>
+        <a style ="color:#000000;" class="nav-link" id="vii-pills-settings-tab2" data-toggle="pill" href="#vii-pills-settings2" role="tab" aria-controls="vii-pills-settings2" aria-selected="false">Voz femenina Estilizada</a>
+        </div>
+       </div>
     </div>
   </div>
   <div class="card">
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-         Modalidad Conjunto y ensamble
+        <button style ="color:#000000;" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        + Modalidad Conjunto y ensamble
         </button>
       </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+            <div class="card-body">
+            <div class="nav flex-column nav-pills" id="v-pills-tab3" role="tablist" aria-orientation="vertical">
+  <a style ="color:#000000;" class="nav-link active" id="v-pills-home-tab3" data-toggle="pill" href="#v-pills-home3" role="tab" aria-controls="v-pills-home3" aria-selected="true">Ensambles Nuevos formatos</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-profile-tab3" data-toggle="pill" href="#v-pills-profile3" role="tab" aria-controls="v-pills-profile3" aria-selected="false">Modalidad Conjunto de Música Tradicional</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-messages-tab3" data-toggle="pill" href="#v-pills-messages3" role="tab" aria-controls="v-pills-messages3" aria-selected="false">Conjunto de Música Llanera - Nuevas sonoridades</a>
+        </div>
+       </div>
     </div>
        <div class="card">
     <div class="card-header" id="headingFour">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-         Modalidad Danza
+        <button style ="color:#000000;" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        + Modalidad Danza
         </button>
       </h5>
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
+         <div class="card-body">
+            <div class="nav flex-column nav-pills" id="v-pills-tab4" role="tablist" aria-orientation="vertical">
+  <a style ="color:#000000;" class="nav-link active" id="v-pills-home-tab4" data-toggle="pill" href="#v-pills-home4" role="tab" aria-controls="v-pills-home4" aria-selected="true">Pareja de Baile Moderno</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-profile-tab4" data-toggle="pill" href="#v-pills-profile4" role="tab" aria-controls="v-pills-profile4" aria-selected="false">Pareja de Baile Tradicional (Los de hoy)</a>
+  <a style ="color:#000000;" class="nav-link" id="v-pills-messages-tab4" data-toggle="pill" href="#v-pills-messages4" role="tab" aria-controls="v-pills-messages4" aria-selected="false">Pareja de Baile Tradicional (Los de ayer)</a>
+        </div>
+       </div>
     </div>
   </div>
 </div>
@@ -208,10 +249,23 @@
             </div>
           <div class="col-md-8">
                <div class="tab-content" id="v-pills-tabContent">
-  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQC8PvrOKlMuV5fJXruOn9hDk3UgS4taJrPOXz6R9iPqdiqg/viewform?embedded=true" width="640" height="1298" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe></div>
-  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...s</div>
+  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"></div>
+  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfaHfNzBxO64xDZBcutvJ8MwRfU2JEhpRfd039W8dMjabxKqw/viewform?embedded=true" width="640" height="3822" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe></div>
   <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">.a..</div>
   <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">.b..</div>
+                   <div class="tab-pane fade" id="vi-pills-settings" role="tabpanel" aria-labelledby="vi-pills-settings-tab">.b..</div>
+                    <div class="tab-pane fade" id="vii-pills-settings" role="tabpanel" aria-labelledby="vii-pills-settings-tab">.b..</div>
+                   <div class="tab-pane fade show active" id="v-pills-home2" role="tabpanel" aria-labelledby="v-pills-home-tab2"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQC8PvrOKlMuV5fJXruOn9hDk3UgS4taJrPOXz6R9iPqdiqg/viewform?embedded=true" width="640" height="1298" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe></div>
+  <div class="tab-pane fade" id="v-pills-profile2" role="tabpanel" aria-labelledby="v-pills-profile-tab2">...s2</div>
+  <div class="tab-pane fade" id="v-pills-messages2" role="tabpanel" aria-labelledby="v-pills-messages-tab2">.a2..</div>
+                   <div class="tab-pane fade" id="vi-pills-settings2" role="tabpanel" aria-labelledby="vi-pills-settings-tab2">.b..</div>
+                    <div class="tab-pane fade" id="vii-pills-settings2" role="tabpanel" aria-labelledby="vii-pills-settings-tab2">.b..</div>
+                   <div class="tab-pane fade show active" id="v-pills-home3" role="tabpanel" aria-labelledby="v-pills-home-tab3"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQC8PvrOKlMuV5fJXruOn9hDk3UgS4taJrPOXz6R9iPqdiqg/viewform?embedded=true" width="640" height="1298" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe></div>
+  <div class="tab-pane fade" id="v-pills-profile3" role="tabpanel" aria-labelledby="v-pills-profile-tab3">...s2</div>
+  <div class="tab-pane fade" id="v-pills-messages3" role="tabpanel" aria-labelledby="v-pills-messages-tab3">.a2..</div>
+                    <div class="tab-pane fade show active" id="v-pills-home4" role="tabpanel" aria-labelledby="v-pills-home-tab4"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQC8PvrOKlMuV5fJXruOn9hDk3UgS4taJrPOXz6R9iPqdiqg/viewform?embedded=true" width="640" height="1298" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe></div>
+  <div class="tab-pane fade" id="v-pills-profile4" role="tabpanel" aria-labelledby="v-pills-profile-tab4">...s2</div>
+  <div class="tab-pane fade" id="v-pills-messages4" role="tabpanel" aria-labelledby="v-pills-messages-tab4">.a2..</div>
 </div>
                  <br/>
             </div>
@@ -268,7 +322,7 @@
  <div class="col-md-4" align="left">
     <h4 style="color: #f0d87f ;">Siguenos:</h4>
      <br/>
-     <a href="#">
+     <a style ="color:#000000;" href="#">
 <img src="https://backend.culturameta.gov.co/media/Log.jpg" width="20%" height="auto"/>
 </a>
 
